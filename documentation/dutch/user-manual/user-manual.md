@@ -19,7 +19,9 @@ Je kunt inloggen met je Google/Gmail account. De eerste keer dat je de app gebru
 
 Na het inloggen kom je in het startscherm:
 
-![Startscherm](/documentation/dutch/user-manual/start-screen.png "Startscherm")
+<img alt="Startscherm van de app." src="https://raw.githubusercontent.com/artemo24/DyrBok/feature/manuals/documentation/dutch/user-manual/start-screen.png" width="672">
+
+(Freek: hierboven de branch name "feature/manuals" nog vervangen door "main".)
 
 Hier kun je kiezen voor één van de vijf diersoorten: vogels, katten, honden, konijnen en knaagdieren. Ook kun je met de knop rechtsonder informatie over de app bekijken.
 
