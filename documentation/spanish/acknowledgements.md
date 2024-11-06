@@ -1,7 +1,7 @@
 # Expresiones de gratitud
 
-[English version of the acknowledgements](documentation/english/acknowledgements.md).
-[Nederlandse versie van de bedankjes](documentation/dutch/acknowledgements.md).
+[English version of the acknowledgements](/documentation/english/acknowledgements.md).
+[Nederlandse versie van de bedankjes](/documentation/dutch/acknowledgements.md).
 
 El diseño y la creación de la aplicación DyrBok han sido una gran colaboración. Queremos agradecer a:
 - Todos en Dierentehuis Stevenshage en Leiden (Países Bajos): probaron la aplicación para Android y brindaron comentarios.

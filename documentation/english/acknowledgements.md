@@ -1,7 +1,7 @@
 # Acknowledgements
 
-[Nederlandse versie van de bedankjes](documentation/dutch/acknowledgements.md).
-[Versión en español de los agradecimientos](documentation/spanish/acknowledgements.md).
+[Nederlandse versie van de bedankjes](/documentation/dutch/acknowledgements.md).
+[Versión en español de los agradecimientos](/documentation/spanish/acknowledgements.md).
 
 Designing and creating the DyrBok app is a great collaboration. We want to thank:
 - Everyone at Dierentehuis Stevenshage in Leiden (Netherlands): testing the Android app and providing feedback.
