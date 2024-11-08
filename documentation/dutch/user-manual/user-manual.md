@@ -5,7 +5,7 @@
 
 ## Introductie: welkom bij de DyrBok app
 
-Heel leuk dat je de DyrBok app wilt gebruiken (DyrBok is Noors voor dierenboek)! Met deze app kun je foto's van onze asieldieren bekijken en jouw foto's delen met alle vrijwilligers en medewerkers van Dierentehuis Stevenshage. Je kunt ook de beschrijvingen van de dieren lezen en zien welke dieren gereserveerd of geplaatst zijn. Als je foto's deelt, kunnen die eventueel ook gebruikt worden voor de [website](https://www.dierenasielleiden.nl/), het Beestenbende magazine en andere vormen van communicatie van Dierentehuis Stevenshage.
+Heel leuk dat je de DyrBok app wilt gebruiken! (DyrBok is Noors voor dierenboek.) Met deze app kun je foto's van onze asieldieren bekijken en jouw foto's delen met alle vrijwilligers en medewerkers van Dierentehuis Stevenshage. Je kunt ook de beschrijvingen van de dieren lezen en zien welke dieren gereserveerd of geplaatst zijn. Als je foto's deelt, kunnen die eventueel ook gebruikt worden voor de [website](https://www.dierenasielleiden.nl/), het Beestenbende magazine en andere vormen van communicatie van Dierentehuis Stevenshage.
 
 De achtergrondinformatie, adoptiestatus en de foto's van de asieldieren worden overgenomen van de [website](https://www.dierenasielleiden.nl/). Normaal gesproken zie je nieuwe asieldieren binnen één dag in de app.
 
