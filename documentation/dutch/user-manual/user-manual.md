@@ -9,7 +9,7 @@ Heel leuk dat je de DyrBok app wilt gebruiken (DyrBok is Noors voor dierenboek)!
 
 De achtergrondinformatie, adoptiestatus en de foto's van de asieldieren worden overgenomen van de [website](https://www.dierenasielleiden.nl/). Normaal gesproken zie je nieuwe asieldieren binnen één dag in de app.
 
-Als je vragen hebt over of suggesties voor deze handleiding, neem dan a.j.b. contact met ons op via email: artemo.24.nl@gmail.com.
+Als je vragen hebt over of suggesties voor app of deze handleiding, neem dan a.j.b. contact met ons op via email: artemo.24.nl@gmail.com.
 
 (Freek: later voor de screenshots de branch name "feature/manuals" nog vervangen door "main".)
 
