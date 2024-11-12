@@ -12,7 +12,7 @@ Now you will enter a special screen of Google Play (the standard Android app sto
 
 <img alt="Internal test - Google Play tap download." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/internal-test-manual/google-play-internal-test-download.png" width="672">
 
-Click on the link "download it on Google Play" to continue with the installation. (If you have already installed the internal test version of the app, ...)
+Click on the link "download it on Google Play" to continue with the installation.
 
 ## Install the app from Google Play
 

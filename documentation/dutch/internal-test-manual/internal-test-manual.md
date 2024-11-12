@@ -12,7 +12,7 @@ Nu kom je in een speciaal scherm van Google Play (de standaard app store van And
 
 <img alt="Internal test - Google Play klik op download." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/internal-test-manual/google-play-internal-test-download.png" width="672">
 
-Klik op de link "download deze dan via Google Play" om verder te gaan met de installatie. (Als je de internal test versie van de app al hebt geïnstalleerd, ...)
+Klik op de link "download deze dan via Google Play" om verder te gaan met de installatie.
 
 ## Installeer de app van Google Play
 
