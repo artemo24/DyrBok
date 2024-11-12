@@ -1,4 +1,4 @@
-# Handleiding internal test
+# Internal test handleiding
 
 [English version of the internal test manual](/documentation/english/internal-test-manual/internal-test-manual.md).
 
