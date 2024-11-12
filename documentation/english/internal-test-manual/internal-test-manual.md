@@ -1,5 +1,7 @@
 # Internal test manual
 
+[Nederlandse versie van de gebruikershandleiding](/documentation/dutch/internal-test-manual/internal-test-manual.md).
+
 The so-called "internal test" is the first test round for an Android app. You are the first group of testers to get started with the DyrBok app! Installing the app works differently than you are used to: you do not start in Google Play (the standard Android app store), but by clicking on the link in the email you received. After installation, you request access to the app and after one of the application administrators has approved your request, you can actually start using the app.
 
 ## Click on the link in the email
