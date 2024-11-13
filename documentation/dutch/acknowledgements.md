@@ -1,4 +1,4 @@
-# Bedankt
+# Bedankt!
 
 [English version of the acknowledgements](/documentation/english/acknowledgements.md).
 [Versión en español de los agradecimientos](/documentation/spanish/acknowledgements.md).

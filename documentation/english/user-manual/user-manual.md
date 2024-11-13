@@ -11,8 +11,6 @@ The background information, adoption status and photos of the shelter animals ar
 
 If you have any questions or suggestions about the app or this manual, please contact us by email: artemo.24.nl@gmail.com.
 
-(Freek: make English screenshots.)
-
 ## Login
 You can log in with your Google/Gmail account. The first time you use the app, you will be given the opportunity to ask for access to the app. One of the application administrators will then check whether you work for Dierentehuis Stevenshage. After approval, logging in will be automatic.
 
