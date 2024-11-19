@@ -22,11 +22,11 @@ Vervolgens zie je de internal test versie van de DyrBok app in Google Play:
 
 <img alt="Internal test - Google Play klik op install." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/internal-test-manual/google-play-internal-test-install.png" width="672">
 
-Klik op de knop Installeren om de app op je telefoon (of tablet) te installeren.
+Klik op de knop Installeren om de app op je telefoon (of tablet) te installeren. Onder de knop staat de waarschuwing "Deze app is bedoeld voor ontwikkelaarstests en is mogelijk onveilig of instabiel." We hebben de app zou goed mogelijk getest, maar het is zeker mogelijk dat er bij iemand iets misgaat. Voel je zeker niet verplicht om mee te doen aan deze test. Wel kunnen we zeggen dat we ons niet voor kunnen stellen dat de app onveilig is. In het ergste geval doet de app het niet, maar ook in dat geval zal je telefoon verder goed blijven werken. Voor technisch ondersteuning kun je altijd direct contact opnemen met Harm en Freek (ontwikkelaar app), of een e-mail sturen naar dyrbok@dierenasielleiden.nl.
 
 ## Open de app
 
-Na installatie kun je de app starten door op de Openen knop te klikken:
+Na installatie kun je de app starten door op de Openen knop te klikken (of door op het DyrBok icoontje te klikken in de lijst met apps op je telefoon):
 
 <img alt="Internal test - Google Play klik op open." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/internal-test-manual/google-play-internal-test-open.png" width="672">
 
@@ -54,4 +54,4 @@ Als je de e-mail hebt verstuurd, is het even geduld hebben tot de applicatiebehe
 
 <img alt="DyrBok login - wacht op toegang." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/internal-test-manual/dyrbok-ask-for-access-wait.png" width="672">
 
-Je kunt de app nu afsluiten. Als je een e-mail met goed nieuws terug krijgt van de applicatiebeheerders, hoort het inloggen in de app telkens automatisch goed te gaan. Neem even contact op via e-mail (artemo.24.nl@gmail.com) als je tegen problemen aanloopt bij het inloggen. Veel plezier met de DyrBok app!
+Sluit de app nu af. Als je een e-mail met goed nieuws terug krijgt van de applicatiebeheerders, kun je de app opnieuw starten en hoort het inloggen in de app vanzelf goed te gaan. Als je tegen problemen aanloopt bij het inloggen, kun je altijd direct contact opnemen met Harm en Freek (ontwikkelaar app), of een e-mail sturen naar dyrbok@dierenasielleiden.nl. Veel plezier met de DyrBok app!
