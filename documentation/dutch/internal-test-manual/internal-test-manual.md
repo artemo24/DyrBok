@@ -22,7 +22,7 @@ Vervolgens zie je de internal test versie van de DyrBok app in Google Play:
 
 <img alt="Internal test - Google Play klik op install." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/internal-test-manual/google-play-internal-test-install.png" width="672">
 
-Klik op de knop Installeren om de app op je telefoon (of tablet) te installeren. Onder de knop staat de waarschuwing "Deze app is bedoeld voor ontwikkelaarstests en is mogelijk onveilig of instabiel." We hebben de app zou goed mogelijk getest, maar het is zeker mogelijk dat er bij iemand iets misgaat. Voel je zeker niet verplicht om mee te doen aan deze test. Wel kunnen we zeggen dat we ons niet voor kunnen stellen dat de app onveilig is. In het ergste geval doet de app het niet, maar ook in dat geval zal je telefoon verder goed blijven werken. Voor technisch ondersteuning kun je altijd direct contact opnemen met Harm en Freek (ontwikkelaar app), of een e-mail sturen naar dyrbok@dierenasielleiden.nl.
+Klik op de knop Installeren om de app op je telefoon (of tablet) te installeren. Onder de knop staat de waarschuwing "Deze app is bedoeld voor ontwikkelaarstests en is mogelijk onveilig of instabiel." We hebben de app zo goed mogelijk getest, maar het is zeker mogelijk dat er bij iemand iets misgaat. Voel je zeker niet verplicht om mee te doen aan deze test. Wel kunnen we zeggen dat we ons niet voor kunnen stellen dat de app onveilig is. In het ergste geval doet de app het niet, maar ook in dat geval zal je telefoon verder goed blijven werken. Voor technisch ondersteuning kun je altijd direct contact opnemen met Harm en Freek (ontwikkelaar app), of een e-mail sturen naar dyrbok@dierenasielleiden.nl.
 
 ## Open de app
 
