@@ -18,21 +18,21 @@ Click on the link "download it on Google Play" to continue with the installation
 
 ## Install the app from Google Play
 
-Then you will see the internal test version of the app in Google Play:
+Then you will see the internal test version of the DyrBok app in Google Play:
 
 <img alt="Internal test - Google Play tap install." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/internal-test-manual/google-play-internal-test-install.png" width="672">
 
-Click on the Install button to install the app on your phone (or tablet).
+Click on the Install button to install the app on your phone (or tablet). Below the button is the warning "This app is for developer testing and may be unsecure or unstable." We have tested the app as well as possible, but it is certainly possible that something goes wrong for someone. Do not feel obliged to participate in this test. We can say that we cannot imagine that the app is unsafe. In the worst case, the app does not work, but even in that case your phone will continue to work fine. For technical support you can always contact Harm and Freek (developer of the app) directly, or send an email to dyrbok@dierenasielleiden.nl.
 
 ## Open the app
 
-After installation, you can start the app by clicking the Open button:
+After installation, you can start the app by clicking the Open button (or by clicking on the DyrBok icon in the list of apps on your phone):
 
 <img alt="Internal test - Google Play tap open." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/internal-test-manual/google-play-internal-test-open.png" width="672">
 
 ## Log in to the app
 
-When you start the app for the first time, you will be asked which Google/Gmail account you want to log in with:
+When you start the app for the first time, you will be asked which Google/Gmail account you want to log in with. Select the account you want to log in with in the DyrBok app:
 
 <img alt="DyrBok login - select Google account." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/internal-test-manual/dyrbok-login-select-google-account.png" width="672">
 
@@ -54,4 +54,4 @@ Once you have sent the email, you will have to be patient until the application 
 
 <img alt="DyrBok login - wait for access." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/internal-test-manual/dyrbok-ask-for-access-wait.png" width="672">
 
-You can now close the app. If you receive an email with good news from the application administrators, logging in to the app should automatically work fine every time. Please contact us by email (artemo.24.nl@gmail.com) if you encounter any problems logging in. Have fun with the DyrBok app!
+Close the app now. If you receive an email with good news from the application administrators, you can restart the app and logging into the app should automatically work. If you encounter problems logging in, you can always contact Harm and Freek (app developer) directly, or send an email to dyrbok@dierenasielleiden.nl. Have fun with the DyrBok app!
