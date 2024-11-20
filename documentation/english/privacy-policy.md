@@ -8,4 +8,4 @@ Access to the DyrBok app is limited to volunteers and employees of the animal sh
 
 Users of the DyrBok app can view infromation and photos about the shelter animals. They can optionally share photos of the animals with other users. These photos will be visible to other users and will be shown with the name of the photographer and the capture date/time. Photos can include location information. Besides being shown in the app, photos can also be used by the animal shelter for the website, magazine and other communication.
 
-If you have any questions or suggestions about our privacy policy, please contact us via email: artemo.24.nl@gmail.com.
+If you have any questions or suggestions about our privacy policy, please contact us via email: dyrbok.24@gmail.com.

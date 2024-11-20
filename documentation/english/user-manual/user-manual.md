@@ -9,7 +9,7 @@ We are very happy that you want to use the DyrBok app! (DyrBok is Norwegian for 
 
 The background information, adoption status and photos of the shelter animals are copied from the [website](https://www.dierenasielleiden.nl/). Normally you will see new shelter animals in the app within one day.
 
-If you have any questions or suggestions about the app or this manual, please contact us by email: artemo.24.nl@gmail.com.
+If you have any questions or suggestions about the app or this manual, please contact us by email: dyrbok.24@gmail.com.
 
 ## Login
 You can log in with your Google/Gmail account. The first time you use the app, you will be given the opportunity to ask for access to the app. One of the application administrators will then check whether you work for Dierentehuis Stevenshage. After approval, logging in will be automatic.

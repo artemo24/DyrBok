@@ -7,7 +7,7 @@
 
 Los antecedentes, el estado de adopción y las fotografías de los animales del refugio están copiados del [sitio web](https://www.dierenasielleidingen.nl/). Normalmente verás nuevos animales del refugio en la aplicación dentro de un día.
 
-Si tiene alguna pregunta o sugerencia sobre la aplicación o este manual, contáctenos por correo electrónico: artemo.24.nl@gmail.com.
+Si tiene alguna pregunta o sugerencia sobre la aplicación o este manual, contáctenos por correo electrónico: dyrbok.24@gmail.com.
 
 ## Acceso
 Puede iniciar sesión con su cuenta de Google/Gmail. La primera vez que utilice la aplicación, se le dará la oportunidad de solicitar acceso a la aplicación. Uno de los administradores de la aplicación comprobará si usted trabaja en Dierentehuis Stevenshage. Después de la aprobación, el inicio de sesión será automático.
