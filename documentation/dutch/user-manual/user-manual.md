@@ -9,7 +9,7 @@ Heel leuk dat je de DyrBok app wilt gebruiken! (DyrBok is Noors voor dierenboek.
 
 De achtergrondinformatie, adoptiestatus en de foto's van de asieldieren worden overgenomen van de [website](https://www.dierenasielleiden.nl/). Normaal gesproken zie je nieuwe asieldieren binnen één dag in de app.
 
-Als je vragen hebt over of suggesties voor app of deze handleiding, neem dan a.j.b. contact met ons op via email: dyrbok.24@gmail.com.
+Als je vragen hebt over of suggesties voor de app of deze handleiding, neem dan a.j.b. contact met ons op via email: dyrbok.24@gmail.com.
 
 ## Inloggen
 
@@ -21,7 +21,7 @@ Na het inloggen kom je in het startscherm:
 
 <img alt="Startscherm van de app." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/user-manual/start-screen.png" width="672">
 
-Hier kun je kiezen voor één van de vijf diersoorten: vogels, katten, honden, konijnen of knaagdieren. Ook kun je met de knop onderaan informatie over de app bekijken.
+Hier kun je kiezen voor één van de vijf diersoorten: honden, katten, konijnen, knaagdieren of vogels. Ook kun je met de knop onderaan informatie over de app bekijken.
 
 ## Scherm met asieldieren van één soort
 
@@ -37,7 +37,7 @@ De knoppen van de dieren hebben verschillende kleuren:
 
 ## Scherm met een asieldier en foto's
 
-Door één van de asieldieren te kiezen, kom je in het scherm met foto's van dit dier:
+Door één van de asieldieren te kiezen, kom je in het scherm met foto's van dit dier (of soms een aantal bij elkaar horende dieren):
 
 <img alt="Scherm met een asieldier en foto's." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/user-manual/pet-photos.png" width="672">
 
@@ -49,7 +49,7 @@ In dit scherm kun je de omschrijving van het asieldier lezen:
 
 <img alt="Scherm met de omschrijving van een asieldier." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/user-manual/pet-description.png" width="672">
 
-De DyrBok app is in verschillende talen beschikbaar. Alleen de omschrijving van de asieldieren wordt nog niet automatisch vertaalt en is alleen in het Nederlands beschikbaar. Op de [website](https://www.dierenasielleiden.nl/) kun je wel vertaalde versies van de omschrijvingen vinden.
+De DyrBok app is in verschillende talen beschikbaar. Alleen de omschrijving van de asieldieren wordt nog niet automatisch vertaald en is alleen in het Nederlands beschikbaar. Op de [website](https://www.dierenasielleiden.nl/) kun je wel vertaalde versies van de omschrijvingen vinden.
 
 ## Spelletjes
 
