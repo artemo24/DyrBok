@@ -17,9 +17,9 @@ Después de iniciar sesión, llegará a la pantalla de inicio:
 
 <img alt="Pantalla de inicio de la aplicación." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/spanish/user-manual/start-screen.png" width="672">
 
-Aquí podrás elegir una de las cinco especies animales: pájaros, gatos, perros, conejos o roedores. También puedes usar el botón en la parte inferior para ver información sobre la aplicación.
+Aquí podrás elegir una de las cinco especies de animales: perro, gato, conejo, roedores o pájaros. También puedes utilizar el botón de la parte inferior para ver información sobre la aplicación.
 
-## Biombo con refugio para animales de una especie.
+## Biombo con refugio para animales de una especie
 
 Después de elegir una de las cinco especies de animales, verá una lista de animales de refugio de esta especie.
 
@@ -31,9 +31,9 @@ Los botones de los animales tienen diferentes colores:
 - naranja para animales reservados (icono: casa con signo de interrogación) y
 - rojo para animales adoptados (icono: casa).
 
-## Pantalla con un animal del refugio y fotografías.
+## Pantalla con un animal del refugio y fotografías
 
-Al seleccionar uno de los animales del refugio, accederás a la pantalla con fotos de este animal:
+Al seleccionar uno de los animales del refugio, accederás a la pantalla con fotos de este animal (o en ocasiones de varios animales relacionados):
 
 <img alt="Pantalla con un animal del refugio y fotografías." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/spanish/user-manual/pet-photos.png" width="672">
 

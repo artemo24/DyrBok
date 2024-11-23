@@ -19,7 +19,7 @@ After logging in, you will arrive at the home screen:
 
 <img alt="Home screen of the app." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/start-screen.png" width="672">
 
-Here you can choose one of the five animal species: birds, cats, dogs, rabbits or rodents. You can also use the button at the bottom to view information about the app.
+Here you can choose one of the five animal species: dog, cats, rabbits, rodents or birds. You can also use the button at the bottom to view information about the app.
 
 ## Screen with shelter animals of one species
 
@@ -35,7 +35,7 @@ The buttons of the animals have different colors:
 
 ## Screen with a shelter animal and photos
 
-By selecting one of the shelter animals, you will enter the screen with photos of this animal:
+By selecting one of the shelter animals, you will enter the screen with photos of this animal (or sometimes a number of related animals):
 
 <img alt="Screen with a shelter animal and photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/pet-photos.png" width="672">
 
