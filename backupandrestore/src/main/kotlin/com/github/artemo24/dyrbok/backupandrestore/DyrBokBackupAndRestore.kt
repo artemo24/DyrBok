@@ -12,8 +12,18 @@ import com.github.artemo24.dyrbok.backupandrestore.firestore.FirestoreImplementa
 import com.github.artemo24.dyrbok.backupandrestore.firestore.FirestoreInterface
 import com.github.artemo24.dyrbok.backupandrestore.utilities.StorageUtilities
 import com.google.auth.oauth2.GoogleCredentials
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.io.BufferedInputStream
+import java.io.BufferedOutputStream
+import java.io.File
 import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Properties
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 import kotlin.reflect.KMutableProperty1
 
 
@@ -42,6 +52,11 @@ fun main() {
 
 
 class DyrBokBackupAndRestore {
+    private val jsonFormatter = Json {
+        encodeDefaults = true
+        prettyPrint = true
+    }
+
     private val verbose = true
 
     fun createFullBackup(firestore: FirestoreInterface, outputDirectory: String) {
@@ -125,17 +140,52 @@ class DyrBokBackupAndRestore {
             }
     }
 
-    private fun writeObjectsToJsonFiles(firestoreObjects: FirestoreObjects, outputDirectory: String) {
-        println("firestoreObjects: $firestoreObjects")
-        println("outputDirectory: $outputDirectory")
-
-        TODO("Write is not yet implemented")
+    fun writeObjectsToJsonFiles(firestoreObjects: FirestoreObjects, outputDirectory: String) {
+        writeDatabaseObjectsToJson(firestoreObjects.logging, outputDirectory, outputFileName = "logging.json")
+        writeDatabaseObjectsToJson(firestoreObjects.pets, outputDirectory, outputFileName = "pets.json")
+        writeDatabaseObjectsToJson(firestoreObjects.mediaItems, outputDirectory, outputFileName = "media-items.json")
+        writeDatabaseObjectsToJson(firestoreObjects.users, outputDirectory, outputFileName = "users.json")
+        writeDatabaseObjectsToJson(firestoreObjects.screenSwitches, outputDirectory, outputFileName = "screen-switches.json")
+        writeDatabaseObjectsToJson(firestoreObjects.settings, outputDirectory, outputFileName = "settings.json")
     }
 
-    private fun zipJsonFiles(outputDirectory: String) {
-        println("outputDirectory: $outputDirectory")
+    private inline fun <reified T : FirestoreObject> writeDatabaseObjectsToJson(
+        databaseObjects: List<T>, outputDirectory: String, outputFileName: String
+    ) {
+        File("${outputDirectory}$outputFileName").writeText(jsonFormatter.encodeToString<List<T>>(databaseObjects))
+    }
 
-        TODO("Zip is not yet implemented")
+    fun readObjectsFromJsonFiles(inputDirectory: String): FirestoreObjects =
+        FirestoreObjects(
+            logging = readDatabaseObjectsFromJson(inputDirectory, inputFileName = "logging.json"),
+            pets = readDatabaseObjectsFromJson(inputDirectory, inputFileName = "pets.json"),
+            mediaItems = readDatabaseObjectsFromJson(inputDirectory, inputFileName = "media-items.json"),
+            users = readDatabaseObjectsFromJson(inputDirectory, inputFileName = "users.json"),
+            screenSwitches = readDatabaseObjectsFromJson(inputDirectory, inputFileName = "screen-switches.json"),
+            settings = readDatabaseObjectsFromJson(inputDirectory, inputFileName = "settings.json"),
+        )
+
+    private inline fun <reified T : FirestoreObject> readDatabaseObjectsFromJson(inputDirectory: String, inputFileName: String): List<T> =
+        jsonFormatter.decodeFromString<List<T>>(File("$inputDirectory$inputFileName").readText())
+
+    fun zipJsonFiles(outputDirectory: String) {
+        val jsonFilenames = File(outputDirectory)
+            .list { _, filename -> filename.endsWith(".json") }
+            ?.toList()
+            ?: emptyList()
+
+        val currentDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd--HH-mm-ss"))
+        val backupZipFile = File(outputDirectory, "backup-dyrbok-firestore-database--$currentDateTime.zip")
+
+        ZipOutputStream(BufferedOutputStream(FileOutputStream(backupZipFile))).use { zipOutputStream ->
+            jsonFilenames.forEach { filename ->
+                BufferedInputStream(FileInputStream(File(outputDirectory, filename))).use { bufferedInputStream ->
+                    zipOutputStream.putNextEntry(ZipEntry(filename))
+                    bufferedInputStream.copyTo(zipOutputStream)
+                    zipOutputStream.closeEntry()
+                }
+            }
+        }
     }
 
     private fun downloadPhotosFromFileStorage(firestoreObjects: FirestoreObjects, outputDirectory: String) {

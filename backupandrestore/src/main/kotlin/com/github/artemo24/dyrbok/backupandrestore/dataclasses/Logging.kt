@@ -25,4 +25,26 @@ class Logging : FirestoreObject {
 
     override fun compareTo(other: FirestoreObject): Int =
         if (other is Logging) date_time.compareTo(other.date_time) else 0
+
+    override fun equals(other: Any?): Boolean =
+        if (other is Logging) {
+            logging_id == other.logging_id &&
+                    date_time == other.date_time &&
+                    logging_level == other.logging_level &&
+                    message == other.message &&
+                    tag == other.tag &&
+                    user_id == other.user_id
+        } else {
+            false
+        }
+
+    override fun hashCode(): Int {
+        var result = logging_id.hashCode()
+        result = 31 * result + date_time.hashCode()
+        result = 31 * result + logging_level.hashCode()
+        result = 31 * result + message.hashCode()
+        result = 31 * result + tag.hashCode()
+        result = 31 * result + user_id.hashCode()
+        return result
+    }
 }
