@@ -192,6 +192,13 @@ class DyrBokBackupAndRestore {
         println("firestoreObjects: $firestoreObjects")
         println("outputDirectory: $outputDirectory")
 
-        TODO("Download is not yet implemented")
+        firestoreObjects
+            .mediaItems
+            // If we want to back up Firebase Storage files only: .filter { it.storage_filepath.isNotBlank() }
+            .forEachIndexed { itemIndex, mediaItem ->
+                println("Download photo ${itemIndex + 1} with photo URL '${mediaItem.photoUrl()}'.")
+
+                // todo: Download the photo and save it to the output directory.
+            }
     }
 }
