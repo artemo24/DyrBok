@@ -19,6 +19,8 @@ import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.io.IOException
+import java.net.URI
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Properties
@@ -60,12 +62,21 @@ class DyrBokBackupAndRestore {
     private val verbose = true
 
     fun createFullBackup(firestore: FirestoreInterface, outputDirectory: String) {
-        val firestoreObjects = readFirestoreDocumentsToObjects(firestore)
-        writeObjectsToJsonFiles(firestoreObjects, outputDirectory)
+        val firestoreObjects = if (hasNoJsonFiles(outputDirectory)) {
+            val readFirestoreObjects = readFirestoreDocumentsToObjects(firestore)
+            writeObjectsToJsonFiles(readFirestoreObjects, outputDirectory)
+            readFirestoreObjects
+        } else {
+            readObjectsFromJsonFiles(outputDirectory)
+        }
+
         zipJsonFiles(outputDirectory)
 
-        downloadPhotosFromFileStorage(firestoreObjects, outputDirectory)
+        downloadPhotosFromFileStorage(firestoreObjects.mediaItems, outputDirectory)
     }
+
+    private fun hasNoJsonFiles(outputDirectory: String): Boolean =
+        File(outputDirectory).list { _, filename -> filename.endsWith(".json") }?.isEmpty() ?: true
 
     fun readFirestoreDocumentsToObjects(firestore: FirestoreInterface): FirestoreObjects {
         val logging = readFirestoreObjects(
@@ -188,17 +199,57 @@ class DyrBokBackupAndRestore {
         }
     }
 
-    private fun downloadPhotosFromFileStorage(firestoreObjects: FirestoreObjects, outputDirectory: String) {
-        println("firestoreObjects: $firestoreObjects")
-        println("outputDirectory: $outputDirectory")
+    private fun downloadPhotosFromFileStorage(mediaItems: List<MediaItem>, outputDirectory: String) {
+        val downloadDirectory = "${outputDirectory}animal-photos/"
+        File(downloadDirectory).mkdirs()
 
-        firestoreObjects
-            .mediaItems
+        mediaItems
             // If we want to back up Firebase Storage files only: .filter { it.storage_filepath.isNotBlank() }
             .forEachIndexed { itemIndex, mediaItem ->
-                println("Download photo ${itemIndex + 1} with photo URL '${mediaItem.photoUrl()}'.")
+                if (verbose) {
+                    println("Download photo ${itemIndex + 1} with URL '${mediaItem.photoUrl()}'.")
+                }
 
-                // todo: Download the photo and save it to the output directory.
+                val filename = determineFilename(mediaItem, itemIndex)
+                val result = downloadFile(mediaItem.photoUrl() ?: "", "${downloadDirectory}$filename")
+
+                if (verbose) {
+                    println("- Downloading file $filename was ${if (result) "" else "not "}successful.")
+                }
             }
+    }
+
+    private fun determineFilename(mediaItem: MediaItem, itemIndex: Int): String {
+        val baseFilename = "animal-photo--${mediaItem.media_item_id}--"
+
+        return baseFilename + if (mediaItem.storage_filepath.isNotBlank())
+            mediaItem.storage_filepath
+                .substringAfterLast("/")
+                .replace("*", "_")
+                .replace(" ", "_")
+        else if (mediaItem.website_media_file_url.isNotBlank())
+            mediaItem.website_media_file_url
+                .removePrefix("https://www.dierenasielleiden.nl/wp-content/uploads/")
+                .replace("/", "_")
+        else
+            "${itemIndex + 1}.jpg"  // This should not happen. Guess the file extension.
+    }
+
+    private fun downloadFile(url: String, outputFilePath: String): Boolean {
+        var result = true
+
+        try {
+            BufferedInputStream(URI(url).toURL().openStream()).use { inputStream ->
+                FileOutputStream(File(outputFilePath)).use { fileOutputStream ->
+                    inputStream.copyTo(fileOutputStream)
+                }
+            }
+        } catch (e: IOException) {
+            println("Error downloading file from URL '$url': '$e'.")
+
+            result = false
+        }
+
+        return result
     }
 }
