@@ -25,7 +25,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Properties
 import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
+import kotlin.io.use
 import kotlin.reflect.KMutableProperty1
 
 
@@ -62,7 +64,7 @@ class DyrBokBackupAndRestore {
     private val verbose = true
 
     fun createFullBackup(firestore: FirestoreInterface, outputDirectory: String) {
-        val firestoreObjects = if (hasNoJsonFiles(outputDirectory)) {
+        val firestoreObjects = if (noJsonFilesFound(outputDirectory)) {
             val readFirestoreObjects = readFirestoreDocumentsToObjects(firestore)
             writeObjectsToJsonFiles(readFirestoreObjects, outputDirectory)
             readFirestoreObjects
@@ -75,7 +77,7 @@ class DyrBokBackupAndRestore {
         downloadPhotosFromFileStorage(firestoreObjects.mediaItems, outputDirectory)
     }
 
-    private fun hasNoJsonFiles(outputDirectory: String): Boolean =
+    private fun noJsonFilesFound(outputDirectory: String): Boolean =
         File(outputDirectory).list { _, filename -> filename.endsWith(".json") }?.isEmpty() ?: true
 
     fun readFirestoreDocumentsToObjects(firestore: FirestoreInterface): FirestoreObjects {
@@ -163,7 +165,7 @@ class DyrBokBackupAndRestore {
     private inline fun <reified T : FirestoreObject> writeDatabaseObjectsToJson(
         databaseObjects: List<T>, outputDirectory: String, outputFileName: String
     ) {
-        File("${outputDirectory}$outputFileName").writeText(jsonFormatter.encodeToString<List<T>>(databaseObjects))
+        File(outputDirectory, outputFileName).writeText(jsonFormatter.encodeToString<List<T>>(databaseObjects))
     }
 
     fun readObjectsFromJsonFiles(inputDirectory: String): FirestoreObjects =
@@ -177,9 +179,9 @@ class DyrBokBackupAndRestore {
         )
 
     private inline fun <reified T : FirestoreObject> readDatabaseObjectsFromJson(inputDirectory: String, inputFileName: String): List<T> =
-        jsonFormatter.decodeFromString<List<T>>(File("$inputDirectory$inputFileName").readText())
+        jsonFormatter.decodeFromString<List<T>>(File(inputDirectory, inputFileName).readText())
 
-    fun zipJsonFiles(outputDirectory: String) {
+    fun zipJsonFiles(outputDirectory: String): String {
         val jsonFilenames = File(outputDirectory)
             .list { _, filename -> filename.endsWith(".json") }
             ?.toList()
@@ -195,6 +197,31 @@ class DyrBokBackupAndRestore {
                     bufferedInputStream.copyTo(zipOutputStream)
                     zipOutputStream.closeEntry()
                 }
+            }
+        }
+
+        return backupZipFile.absolutePath
+    }
+
+    fun unzipJsonFiles(backupZipFileAbsolutePath: String, outputDirectory: String) {
+        ZipInputStream(FileInputStream(backupZipFileAbsolutePath)).use { zipInputStream ->
+            var zipEntry = zipInputStream.nextEntry
+
+            while (zipEntry != null) {
+                val newFileSystemObject = File(outputDirectory, zipEntry.name)
+
+                if (zipEntry.isDirectory) {
+                    newFileSystemObject.mkdirs()
+                } else {
+                    newFileSystemObject.parentFile.mkdirs()
+
+                    FileOutputStream(newFileSystemObject).use { fileOutputStream ->
+                        zipInputStream.copyTo(fileOutputStream)
+                    }
+                }
+
+                zipInputStream.closeEntry()
+                zipEntry = zipInputStream.nextEntry
             }
         }
     }
