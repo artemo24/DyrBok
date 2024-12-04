@@ -38,13 +38,13 @@ fun main() {
     val backupProperties = Properties()
     backupProperties.load(FileInputStream("etc/dyrbok-backup.properties"))
     val firebaseProjectId = backupProperties["firebaseProjectId"].toString()
-    val googleServicesJsonPath = backupProperties["googleServicesJsonPath"].toString()
+    val applicationCredentialsJsonPath = backupProperties["applicationCredentialsJsonPath"].toString()
     val photoBucketUrl = backupProperties["photoBucketUrl"].toString()
     val outputDirectory = backupProperties["outputDirectory"].toString()
 
     StorageUtilities.setPhotoBucketUrl(photoBucketUrl)
 
-    val googleCredentials = GoogleCredentials.fromStream(FileInputStream(googleServicesJsonPath))
+    val googleCredentials = GoogleCredentials.fromStream(FileInputStream(applicationCredentialsJsonPath))
     val firestore = FirestoreImplementation(firebaseProjectId, googleCredentials)
 
     println("Create a full backup of the Firestore database and the file storage of the Firebase project with ID '$firebaseProjectId'.")
