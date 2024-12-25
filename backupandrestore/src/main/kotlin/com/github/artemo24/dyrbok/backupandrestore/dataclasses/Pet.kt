@@ -16,9 +16,11 @@ class Pet : FirestoreObject {
     var visible: Boolean = false
     var webpage_url: String = ""
 
+    fun getNameUnique(): String = unique_name.ifEmpty { name }
+
     override fun toString(): String =
-        "Pet $name (adoption status: ${adoption_status.lowercase()})"
+        "Animal ${getNameUnique()} (adoption status: ${adoption_status.lowercase()})"
 
     override fun compareTo(other: FirestoreObject): Int =
-        if (other is Pet) name.compareTo(other.name) else 0
+        if (other is Pet) getNameUnique().compareTo(other.getNameUnique()) else 0
 }

@@ -1,4 +1,4 @@
-package com.github.artemo24.dyrbok.backupandrestore
+package com.github.artemo24.dyrbok.backupandrestore.main
 
 import com.github.artemo24.dyrbok.backupandrestore.dataclasses.FirestoreObject
 import com.github.artemo24.dyrbok.backupandrestore.dataclasses.FirestoreObjects
@@ -27,7 +27,6 @@ import java.util.Properties
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
-import kotlin.io.use
 import kotlin.reflect.KMutableProperty1
 
 
@@ -47,6 +46,7 @@ fun main() {
     val googleCredentials = GoogleCredentials.fromStream(FileInputStream(applicationCredentialsJsonPath))
     val firestore = FirestoreImplementation(firebaseProjectId, googleCredentials)
 
+    println()
     println("Create a full backup of the Firestore database and the file storage of the Firebase project with ID '$firebaseProjectId'.")
     println("Output is written to directory '$outputDirectory'.")
 
@@ -61,7 +61,8 @@ class DyrBokBackupAndRestore {
         prettyPrint = true
     }
 
-    private val verbose = true
+    private val verboseLevel1 = true
+    private val verboseLevel2 = false
 
     fun createFullBackup(firestore: FirestoreInterface, outputDirectory: String) {
         val firestoreObjects = if (noJsonFilesFound(outputDirectory)) {
@@ -118,7 +119,7 @@ class DyrBokBackupAndRestore {
             objectIdProperty = Settings::setting_id
         )
 
-        if (verbose) {
+        if (verboseLevel2) {
             printScreenSwitches(screenSwitches)
         }
 
@@ -233,17 +234,48 @@ class DyrBokBackupAndRestore {
         mediaItems
             // If we want to back up Firebase Storage files only: .filter { it.storage_filepath.isNotBlank() }
             .forEachIndexed { itemIndex, mediaItem ->
-                if (verbose) {
-                    println("Download photo ${itemIndex + 1} with URL '${mediaItem.photoUrl()}'.")
-                }
+                val photoUrl = mediaItem.photoUrl()
 
-                val filename = determineFilename(mediaItem, itemIndex)
-                val result = downloadFile(mediaItem.photoUrl() ?: "", "${downloadDirectory}$filename")
-
-                if (verbose) {
-                    println("- Downloading file $filename was ${if (result) "" else "not "}successful.")
+                if (photoUrl != null) {
+                    downloadPhotoFromFileStorage(mediaItem, itemIndex, mediaItems.size, photoUrl, downloadDirectory)
+                } else {
+                    System.err.println(">>> Media item $mediaItem does not have a valid photo URL.")
                 }
             }
+    }
+
+    private fun downloadPhotoFromFileStorage(
+        mediaItem: MediaItem,
+        itemIndex: Int,
+        itemCount: Int,
+        photoUrl: String,
+        downloadDirectory: String
+    ) {
+        val filename = determineFilename(mediaItem, itemIndex)
+
+        if (verboseLevel1) {
+            val shortPhotoUrl = getShortPhotoUrl(photoUrl, mediaItem)
+            println("Download photo ${itemIndex + 1} of $itemCount with URL '$shortPhotoUrl' to file '$filename'.")
+        }
+
+        val result = downloadFile(photoUrl, outputFilePath = "${downloadDirectory}$filename")
+
+        if (!result || verboseLevel2) {
+            println("${if (result) "" else ">>> "}Downloading file '$filename' was ${if (result) "" else "not "}successful.")
+        }
+    }
+
+    private fun getShortPhotoUrl(photoUrl: String, mediaItem: MediaItem): String {
+        val websitePrefix = "https://www.dierenasielleiden.nl/wp-content/uploads/"
+        val firebasePrefix = StorageUtilities.getPhotoBucketUrl()
+        val gitHubPrefix = "https://raw.githubusercontent.com/FreekDB/repository-size-test/main/"
+
+        return when {
+            photoUrl.startsWith(prefix = websitePrefix) -> "website: ${photoUrl.substringAfter(delimiter = websitePrefix)}"
+            photoUrl.startsWith(prefix = firebasePrefix) -> "Firebase: ${mediaItem.storage_filepath.substringAfterLast(delimiter = "/")}"
+            photoUrl.startsWith(prefix = gitHubPrefix) -> "GitHub: ${photoUrl.substringAfter(delimiter = gitHubPrefix)}"
+            else -> photoUrl
+        }
     }
 
     private fun determineFilename(mediaItem: MediaItem, itemIndex: Int): String {
@@ -272,7 +304,7 @@ class DyrBokBackupAndRestore {
                 }
             }
         } catch (e: IOException) {
-            println("Error downloading file from URL '$url': '$e'.")
+            println(">>> Error downloading file from URL '$url': '$e'.")
 
             result = false
         }

@@ -36,14 +36,14 @@ class MediaItem : FirestoreObject {
     var website_media_file_url: String = ""
 
     override fun toString(): String =
-        "Media item with ID '$media_item_id' referencing a photo of pet with ID '$pet_id'"
+        "Media item with ID '$media_item_id' referencing a photo of the animal with ID '$pet_id'"
 
     override fun compareTo(other: FirestoreObject): Int =
         if (other is MediaItem) media_item_id.compareTo(other.media_item_id) else 0
 
     fun photoUrl(): String? =
         if (storage_filepath.isNotBlank()) {
-            StorageUtilities.getPhotoUrl(storage_filepath.substringAfterLast("/"))
+            StorageUtilities.getPhotoUrl(storage_filepath.substringAfterLast(delimiter = "/"))
         } else if (website_media_file_url.isNotBlank()) {
             website_media_file_url
         } else {

@@ -1,6 +1,7 @@
 package com.github.artemo24.dyrbok.backupandrestore
 
 import com.github.artemo24.dyrbok.backupandrestore.firestore.FirestoreTestMock
+import com.github.artemo24.dyrbok.backupandrestore.main.DyrBokBackupAndRestore
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

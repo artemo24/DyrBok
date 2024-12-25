@@ -7,6 +7,8 @@ class StorageUtilities {
 
         private var photoBucketUrl = ""
 
+        fun getPhotoBucketUrl(): String = photoBucketUrl
+
         fun setPhotoBucketUrl(newBucketUrl: String) {
             photoBucketUrl = newBucketUrl
         }
