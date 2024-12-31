@@ -36,7 +36,7 @@ class MediaItem : FirestoreObject {
     var website_media_file_url: String = ""
 
     override fun toString(): String =
-        "Media item with ID '$media_item_id' referencing a photo of the animal with ID '$pet_id'"
+        "Media item with ID '$media_item_id' referencing a media item of the animal with ID '$pet_id'"
 
     override fun compareTo(other: FirestoreObject): Int =
         if (other is MediaItem) media_item_id.compareTo(other.media_item_id) else 0

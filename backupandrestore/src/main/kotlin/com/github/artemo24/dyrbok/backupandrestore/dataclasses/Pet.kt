@@ -16,7 +16,8 @@ class Pet : FirestoreObject {
     var visible: Boolean = false
     var webpage_url: String = ""
 
-    fun getNameUnique(): String = unique_name.ifEmpty { name }
+    fun getNameUnique(): String =
+        if (unique_name.isEmpty() || unique_name == "$name-1" || unique_name == "$name-*") name else unique_name
 
     override fun toString(): String =
         "Animal ${getNameUnique()} (adoption status: ${adoption_status.lowercase()})"

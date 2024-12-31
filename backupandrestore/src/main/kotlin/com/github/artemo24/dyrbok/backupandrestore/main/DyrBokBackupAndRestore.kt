@@ -228,6 +228,9 @@ class DyrBokBackupAndRestore {
     }
 
     private fun downloadPhotosFromFileStorage(mediaItems: List<MediaItem>, outputDirectory: String) {
+        // todo: Use MD5 checksum to download only the new files.
+        // /home/freek/test/android/FirebaseTest1/app/src/main/java/com/github/freekdb/firebasetest1/model/utilities/MD5.kt
+
         val downloadDirectory = "${outputDirectory}animal-photos/"
         File(downloadDirectory).mkdirs()
 
@@ -254,7 +257,7 @@ class DyrBokBackupAndRestore {
         val filename = determineFilename(mediaItem, itemIndex)
 
         if (verboseLevel1) {
-            val shortPhotoUrl = getShortPhotoUrl(photoUrl, mediaItem)
+            val shortPhotoUrl = StorageUtilities.getShortMediaItemUrl(mediaItem)
             println("Download photo ${itemIndex + 1} of $itemCount with URL '$shortPhotoUrl' to file '$filename'.")
         }
 
@@ -262,19 +265,6 @@ class DyrBokBackupAndRestore {
 
         if (!result || verboseLevel2) {
             println("${if (result) "" else ">>> "}Downloading file '$filename' was ${if (result) "" else "not "}successful.")
-        }
-    }
-
-    private fun getShortPhotoUrl(photoUrl: String, mediaItem: MediaItem): String {
-        val websitePrefix = "https://www.dierenasielleiden.nl/wp-content/uploads/"
-        val firebasePrefix = StorageUtilities.getPhotoBucketUrl()
-        val gitHubPrefix = "https://raw.githubusercontent.com/FreekDB/repository-size-test/main/"
-
-        return when {
-            photoUrl.startsWith(prefix = websitePrefix) -> "website: ${photoUrl.substringAfter(delimiter = websitePrefix)}"
-            photoUrl.startsWith(prefix = firebasePrefix) -> "Firebase: ${mediaItem.storage_filepath.substringAfterLast(delimiter = "/")}"
-            photoUrl.startsWith(prefix = gitHubPrefix) -> "GitHub: ${photoUrl.substringAfter(delimiter = gitHubPrefix)}"
-            else -> photoUrl
         }
     }
 
