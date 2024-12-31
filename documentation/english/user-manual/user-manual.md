@@ -25,7 +25,7 @@ Here you can choose one of the five animal species: dog, cats, rabbits, rodents 
 
 After choosing one of the five animal species, you will see a list of shelter animals of this species.
 
-<img alt="Screen with shelter animals of one species." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/pets-of-type.png" width="672">
+<img alt="Screen with shelter animals of one species." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species.png" width="672">
 
 The buttons of the animals have different colors:
 - blue for available animals;
@@ -37,7 +37,7 @@ The buttons of the animals have different colors:
 
 By selecting one of the shelter animals, you will enter the screen with photos of this animal (or sometimes a number of related animals):
 
-<img alt="Screen with a shelter animal and photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/pet-photos.png" width="672">
+<img alt="Screen with a shelter animal and photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animal-photos.png" width="672">
 
 With the plus button at the bottom right, you can optionally add your own photos of this shelter animal. If you click on the button with the name of the animal, you will see the description of this animal.
 
@@ -45,23 +45,33 @@ With the plus button at the bottom right, you can optionally add your own photos
 
 In this screen you can read the description of the shelter animal:
 
-<img alt="Screen with the description of a shelter animal." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/pet-description.png" width="672">
+<img alt="Screen with the description of a shelter animal." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animal-description.png" width="672">
 
 The DyrBok app is available in several languages. Only the description of the shelter animals is not yet automatically translated and is only available in Dutch. On the [website](https://www.dierenasielleiden.nl/) you can find translated versions of the descriptions.
 
 ## Games
 
-If you click on the name of the animal species at the top of the screen with the shelter animals of one species, you will enter the quiz:
+If you click on the Quiz button at the top of the screen with the shelter animals of one species, you will enter the quiz:
 
-<img alt="Screen with quiz from name to photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/pet-quiz-1.png" width="672">
+<img alt="Screen with quiz from name to photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-1a.png" width="672">
 
-In the quiz you will see one name and four photos. Click on the correct photo and you will get four points. After two correct answers in a row you will see six photos and you will also get six points per correct answer. After two incorrect answers in a row the number of photos is reduced by two.
+In the quiz you will see one name and four photos. Click on the correct photo and you will get four points. After two correct answers in a row you will see six photos and you will also get six points per correct answer. After two incorrect answers in a row, the number of photos is reduced by two.
 
-By clicking on the name of the animal species again you can play an alternative version of the quiz:
+After clicking on one of the photos, the correct photo gets a green border and the other photos get a red border:
 
-<img alt="Screen with quiz from photo to names." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/pet-quiz-2.png" width="672">
+<img alt="Screen with quiz from name to photos with green and red borders." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-1b.png" width="672">
 
-Now you will see one picture and a number of names. Click on the correct name to earn points.
+By clicking on one of the photos again, you will see the next quiz question.
+
+By clicking on the score at the top of the screen, you can play an alternative version of the quiz:
+
+<img alt="Screen with quiz from photo to names." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-2a.png" width="672">
+
+Now you will see one photo and a number of names. Click on the correct name to earn points. After clicking on one of the names, the correct name gets a green border and the other names get a red border:
+
+<img alt="Screen with quiz from photo to names with green and red borders." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-2b.png" width="672">
+
+By clicking on one of the names again, you will see the next quiz question.
 
 ## Background information of the app
 
