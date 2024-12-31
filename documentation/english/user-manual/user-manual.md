@@ -53,23 +53,23 @@ The DyrBok app is available in several languages. Only the description of the sh
 
 If you click on the Quiz button at the top of the screen with the shelter animals of one species, you will enter the quiz:
 
-<img alt="Screen with quiz from name to photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-1a.png" width="672">
+<img alt="Screen with quiz from name to photos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-quiz-1a.png" width="672">
 
 In the quiz you will see one name and four photos. Click on the correct photo and you will get four points. After two correct answers in a row you will see six photos and you will also get six points per correct answer. After two incorrect answers in a row, the number of photos is reduced by two.
 
 After clicking on one of the photos, the correct photo gets a green border and the other photos get a red border:
 
-<img alt="Screen with quiz from name to photos with green and red borders." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-1b.png" width="672">
+<img alt="Screen with quiz from name to photos with green and red borders." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-quiz-1b.png" width="672">
 
 By clicking on one of the photos again, you will see the next quiz question.
 
 By clicking on the score at the top of the screen, you can play an alternative version of the quiz:
 
-<img alt="Screen with quiz from photo to names." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-2a.png" width="672">
+<img alt="Screen with quiz from photo to names." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-quiz-2a.png" width="672">
 
 Now you will see one photo and a number of names. Click on the correct name to earn points. After clicking on one of the names, the correct name gets a green border and the other names get a red border:
 
-<img alt="Screen with quiz from photo to names with green and red borders." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-of-species-quiz-2b.png" width="672">
+<img alt="Screen with quiz from photo to names with green and red borders." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/animals-quiz-2b.png" width="672">
 
 By clicking on one of the names again, you will see the next quiz question.
 
