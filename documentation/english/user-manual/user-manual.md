@@ -29,7 +29,7 @@ After choosing one of the five animal species, you will see a list of shelter an
 
 The buttons of the animals have different colors:
 - blue for available animals;
-- green for available animals where we can still use photos (icon: camera);
+- green for available animals for which we can still use photos (icon: camera);
 - orange for reserved animals (icon: house with question mark) and
 - red for adopted animals (icon: house).
 

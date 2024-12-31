@@ -31,7 +31,7 @@ Na het kiezen van één van de vijf diersoorten, krijg je een lijst met asieldie
 
 De knoppen van de dieren hebben verschillende kleuren:
 - blauw voor beschikbare dieren;
-- groen voor beschikbare dieren waar we nog foto's kunnen gebruiken (icoon: fotocamera);
+- groen voor beschikbare dieren waarvoor we nog foto's kunnen gebruiken (icoon: fotocamera);
 - oranje voor gereserveerde dieren (icoon: huis met vraagteken) en
 - rood voor geplaatste dieren (icoon: huis).
 
