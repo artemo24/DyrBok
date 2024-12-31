@@ -18,8 +18,11 @@ class ScreenSwitch : FirestoreObject {
     val source_screen_name: String = ""
     val target_screen_name: String = ""
 
-    override fun toString(): String =
-        "Screen switch with ID '$screen_switch_id' on date/time '$date_time'"
+    override fun toString(): String {
+        val parametersPart = if (parameters.isEmpty()) "" else " with parameters '$parameters'"
+
+        return "Screen switch on ${date_time.take(19)} by $firebase_user_id from '$source_screen_name' to '$target_screen_name'$parametersPart"
+    }
 
     override fun compareTo(other: FirestoreObject): Int =
         if (other is ScreenSwitch) date_time.compareTo(other.date_time) else 0

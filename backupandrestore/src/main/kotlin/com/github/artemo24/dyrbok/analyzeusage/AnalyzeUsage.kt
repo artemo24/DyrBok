@@ -10,13 +10,18 @@ import java.util.Properties
 fun main() {
     println()
 
-    AnalyzeUsage().analyzeAnimalsAndMediaItems()
+    // Disabled: AnalyzeUsage().analyzeAnimalsAndMediaItems()
 
     // Disabled: AnalyzeUsage().analyzeUsageLogging()
+
+    AnalyzeUsage().analyzeAppVersions()
 }
 
 
 class AnalyzeUsage {
+    private val unknownUser = "<<<Unknown user>>>"
+
+    @Suppress("unused")
     fun analyzeAnimalsAndMediaItems() {
         val firestoreObjects = readFirestoreObjects()
 
@@ -104,35 +109,58 @@ class AnalyzeUsage {
 
         val animalMap = firestoreObjects.pets.associateBy { it.pet_id }
         val usersMap = firestoreObjects.users.associateBy { it.user_id }
-        val userAliases = usersMap.values.map { it.name }.sorted()
-            .mapIndexed { userIndex, userName -> userName to "User ${userIndex + 1}" }.toMap()
+        val userAliases = usersMap.values
+            .map { it.name }
+            .sorted()
+            .mapIndexed { userIndex, userName -> userName to "User ${userIndex + 1}" }
+            .toMap()
 
         // We can later cross reference these changes by going through the other JSON files.
-        val prefix = "Add media item for shelter animal "
+        val addMediaItemPrefix = "Add media item for shelter animal "
         val fromWebsiteBaseUrl = "https://www.dierenasielleiden.nl/wp-content/uploads/"
 
         firestoreObjects.logging.sortedDescending().forEach { logging ->
-            val userName = usersMap[logging.user_id]?.name ?: "<<<Unknown user>>>"
-            val userAlias = (userAliases[userName] ?: "<<<Unknown user>>>")
+            val userName = usersMap[logging.user_id]?.name ?: unknownUser
+            val userAlias = userAliases[userName] ?: unknownUser
             val message = logging.message.replace(userName, userAlias)
 
-            if (message.contains(other = prefix)) {
-                val sourceIndicator = if (message.contains(other = fromWebsiteBaseUrl)) "(W)" else "   "
+            if (message.contains(addMediaItemPrefix)) {
+                val sourceIndicator = if (message.contains(fromWebsiteBaseUrl)) "(W)" else "   "
                 val animalId = message.substringAfter(delimiter = "' (ID: ").substringBefore(delimiter = ") by '")
                 val animalSpecies = animalMap[animalId]?.pet_type ?: "???"
-                val enhancedMessage = "$prefix($animalSpecies) ${message.substringAfter(delimiter = prefix)}"
+                val enhancedMessage = "$addMediaItemPrefix($animalSpecies) ${message.substringAfter(delimiter = addMediaItemPrefix)}"
 
                 println("${logging.date_time} ${userAlias.padStart(length = 20)} $sourceIndicator - $enhancedMessage")
-            } else if (logging.message.contains(other = "quiz")) {
+            } else if (logging.message.contains("quiz")) {
                 println("${logging.date_time} ${userAlias.padStart(length = 20)}     - $message")
             } else {
-                // todo: Anonymize other types of messages. Search for all users names in each logging message.
+                // todo: Anonymize other types of messages. Search for all users names and email addresses in each
+                //       logging message.
                 println("${logging.date_time} ${userAlias.padStart(length = 20)}     - $message")
             }
         }
 
         println()
         println("(W): media item added from the website.")
+    }
+
+    fun analyzeAppVersions() {
+        val firestoreObjects = readFirestoreObjects()
+
+        val userAliases = firestoreObjects.users
+            .map { it.firebase_user_id }
+            .sorted()
+            .mapIndexed { userIndex, firebaseUserId -> firebaseUserId to "User ${userIndex + 1}" }
+            .toMap()
+
+        firestoreObjects.screenSwitches
+            .filter { screenSwitch -> screenSwitch.parameters.startsWith(prefix = "App version: ") }
+            .forEach { screenSwitch ->
+                val userAlias = userAliases[screenSwitch.firebase_user_id] ?: unknownUser
+                val parametersPart = if (screenSwitch.parameters.isEmpty()) "" else " with parameters '${screenSwitch.parameters}'"
+                val message = "Screen switch on ${screenSwitch.date_time.take(19)} by $userAlias from ${screenSwitch.source_screen_name} to ${screenSwitch.target_screen_name}$parametersPart"
+                println(message)
+            }
     }
 
     private fun readFirestoreObjects(): FirestoreObjects {
