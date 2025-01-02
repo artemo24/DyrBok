@@ -31,6 +31,6 @@ class FirestoreImplementation(private val firebaseProjectId: String, private val
         return querySnapshotFuture
             .get()  // Future.get() blocks on response.
             .documents
-            .map { document -> (document.toObject(objectClass) as T).apply { objectIdProperty.set(this, document.id) } }
+            .map { document -> document.toObject(objectClass).apply { objectIdProperty.set(this, document.id) } }
     }
 }
