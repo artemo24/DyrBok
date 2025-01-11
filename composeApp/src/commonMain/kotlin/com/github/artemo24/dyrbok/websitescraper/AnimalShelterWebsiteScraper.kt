@@ -8,21 +8,32 @@ import com.github.artemo24.dyrbok.websitescraper.htmlhandlers.AnimalInformationH
 import com.github.artemo24.dyrbok.websitescraper.htmlhandlers.AnimalsOverviewHtmlHandler
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlHandler
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlParser
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.get
+import io.ktor.http.isSuccess
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import java.io.BufferedReader
-import java.io.FileNotFoundException
-import java.io.InputStreamReader
-import java.net.URI
-import java.util.stream.Collectors
-
+import kotlinx.serialization.json.Json
 
 class AnimalShelterWebsiteScraper(private val animalShelterWebsiteAddress: String, private val dispatcher: CoroutineDispatcher = Dispatchers.IO) {
     private val logTag = AnimalShelterWebsiteScraper::class.simpleName
+
+    private val httpClient = HttpClient(CIO) {
+        install(ContentNegotiation) {
+            json(Json {
+                ignoreUnknownKeys = true
+            })
+        }
+    }
 
     // todo: Return a list instead of a map. This will allow multiple animals with the same name to be returned, which
     //       is an rare situation which can happen.
@@ -32,7 +43,7 @@ class AnimalShelterWebsiteScraper(private val animalShelterWebsiteAddress: Strin
                 Log.d(logTag, "getAnimalNamesToAnimalOverviewItems -- webAnimalSpeciesName: $webAnimalSpeciesName.")
 
                 val listOfMaps = generateSequence(mutableListOf<Map<String, WebsiteAnimalOverviewItem>>()) { collectedNamesToOverviewItems ->
-                    var animalNamesToAnimalOverviewItemsFromPage: Map<String, WebsiteAnimalOverviewItem>
+                    var animalNamesToAnimalOverviewItemsFromPage: Map<String, WebsiteAnimalOverviewItem> = emptyMap()
 
                     runBlocking {
                         animalNamesToAnimalOverviewItemsFromPage = getAnimalNamesToAnimalOverviewItemsFromPage(
@@ -93,14 +104,29 @@ class AnimalShelterWebsiteScraper(private val animalShelterWebsiteAddress: Strin
         }
     }
 
+//    private suspend fun readHtmlFromPage(url: String): String {
+//        return withContext(dispatcher) {
+//            try {
+//                BufferedReader(InputStreamReader(URI(url).toURL().openStream()))
+//                    .lines()
+//                    .collect(Collectors.toList())
+//                    .joinToString(separator = " ")
+//            } catch (e: FileNotFoundException) {
+//                ""
+//            }
+//        }
+//    }
+
     private suspend fun readHtmlFromPage(url: String): String {
         return withContext(dispatcher) {
             try {
-                BufferedReader(InputStreamReader(URI(url).toURL().openStream()))
-                    .lines()
-                    .collect(Collectors.toList())
-                    .joinToString(separator = " ")
-            } catch (e: FileNotFoundException) {
+                val response = httpClient.get(url)
+                if (response.status.isSuccess()) {
+                    response.body<String>()
+                } else {
+                    ""
+                }
+            } catch (e: Exception) {
                 ""
             }
         }

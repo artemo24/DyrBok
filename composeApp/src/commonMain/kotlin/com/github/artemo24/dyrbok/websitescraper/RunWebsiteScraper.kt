@@ -11,10 +11,10 @@ fun main() {
 
 
 class RunWebsiteScraper {
-    private val logTag = "RunWebsiteScraper"
+    private val logTag = RunWebsiteScraper::class.simpleName
     private val animalShelterWebsiteAddress = "https://www.dierenasielleiden.nl/"
 
-    fun runIt() {
+    fun runIt(): String {
         runBlocking {
             val webAnimalSpeciesNames = listOf("hond", "kat", "konijn", "vogel", "knaagdier")
             val websiteScraper = AnimalShelterWebsiteScraper(animalShelterWebsiteAddress)
@@ -34,7 +34,7 @@ class RunWebsiteScraper {
                             val webpageUrl = animalOverviewItem.webpageUrl
                             val animalInformation = if (webpageUrl.isNotEmpty()) websiteScraper.getAnimalInformation(webpageUrl) else null
 
-                            Log.d(logTag, "- $animalName:")
+                            Log.d(logTag, "- $animalName ($webAnimalSpeciesName):")
                             Log.d(logTag, "  + adoption status: ${animalOverviewItem.adoptionStatus}.")
                             Log.d(logTag, "  + web page URL: $webpageUrl.")
 
@@ -49,5 +49,7 @@ class RunWebsiteScraper {
                     }
             }
         }
+
+        return "Some summary text..."
     }
 }

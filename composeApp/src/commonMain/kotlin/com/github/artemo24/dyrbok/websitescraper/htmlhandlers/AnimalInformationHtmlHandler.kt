@@ -2,7 +2,7 @@ package com.github.artemo24.dyrbok.websitescraper.htmlhandlers
 
 import com.github.artemo24.dyrbok.websitescraper.dataclasses.WebsiteAnimalInformation
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlHandler
-import java.net.URI
+import io.ktor.http.Url
 
 
 class AnimalInformationHtmlHandler : KsoupHtmlHandler {
@@ -19,7 +19,7 @@ class AnimalInformationHtmlHandler : KsoupHtmlHandler {
                     val href = attributes["href"]
                     if (!href.isNullOrBlank()) {
                         val photoUrls = websiteAnimalInformation.mediaItemUrls.toMutableList()
-                        photoUrls.add(URI(href.replace("-scaled", "")).toURL())
+                        photoUrls.add(Url(href.replace("-scaled", "")))
                         websiteAnimalInformation = websiteAnimalInformation.copy(mediaItemUrls = photoUrls.toList())
                     }
                 }
