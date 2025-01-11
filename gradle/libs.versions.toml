@@ -20,7 +20,7 @@ kotlinx-datetime = "0.6.1"
 # lifecycleRuntimeKtx = "2.8.6"
 # composeBom = "2024.04.01"
 
-firestore = "3.29.0"
+firestore = "3.30.2"
 jsonSerialization = "1.7.3"
 ktor = "3.0.3"
 rejebKsoup = "0.5.0"

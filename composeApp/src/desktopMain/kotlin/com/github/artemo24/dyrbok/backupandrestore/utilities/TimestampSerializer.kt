@@ -8,6 +8,7 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
+
 /**
  * Simple serializer for the Firestore Timestamp type. Only the seconds property is used; the nanoseconds property is
  * set to zero.

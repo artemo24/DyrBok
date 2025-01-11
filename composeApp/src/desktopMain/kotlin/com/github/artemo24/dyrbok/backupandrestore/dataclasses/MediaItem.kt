@@ -3,6 +3,7 @@ package com.github.artemo24.dyrbok.backupandrestore.dataclasses
 import com.github.artemo24.dyrbok.backupandrestore.utilities.StorageUtilities
 import kotlinx.serialization.Serializable
 
+
 /**
  * This class can be used to create MediaItem Kotlin objects from Firestore documents. Creating the objects is done by
  * the toObject method of the QueryDocumentSnapshot class (from the com.google.cloud.firestore package). I have not
