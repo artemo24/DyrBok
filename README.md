@@ -15,3 +15,15 @@ See the [delete my data](/documentation/english/delete-my-data.md) page for requ
 
 ## Acknowledgements
 We want to thank all the people that have helped to create the DyrBok app: [acknowledgements](/documentation/english/acknowledgements.md).
+
+## Technical background
+This is a Kotlin Multiplatform project targeting Android, iOS and Desktop.
+
+* `/composeApp` contains both code that is shared across the Multiplatform application and platform specific code.
+  It contains several subfolders:
+  - `commonMain` is for code that’s common for all targets.
+  - `androidMain` is for code that’s specific for Android.
+  - `desktopMain` is for code that’s specific for Desktop.
+  - `iosMain` is for code that’s specific for iOS.
+
+* `/iosApp` contains the entry point for the iOS app.
