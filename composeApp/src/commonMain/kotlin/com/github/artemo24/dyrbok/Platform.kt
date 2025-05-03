@@ -6,3 +6,6 @@ interface Platform {
 }
 
 expect fun getPlatform(): Platform
+expect fun isDesktop(): Boolean
+expect fun createFullBackup()
+expect fun analyzeAppUsage()

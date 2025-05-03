@@ -11,7 +11,7 @@ class FirestoreImplementation(private val firebaseProjectId: String, private val
     // private lateinit var firestore: Firestore
     private val firestore = initialize()
 
-    fun initialize(): Firestore {
+    private fun initialize(): Firestore {
         val firestoreOptions =
             FirestoreOptions
                 .getDefaultInstance()

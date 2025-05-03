@@ -32,7 +32,7 @@ class MediaItem : FirestoreObject {
     var pet_type: String = ""
     var photographer_user_id: String = ""
     var size: Long = -1
-    // var original_storage_filepath: String = ""  // todo: Remove (was used for a test with a photo on GitHub).
+    var original_storage_filepath: String = ""  // todo: Remove (was used for a test with a photo on GitHub).
     var storage_filepath: String = ""
     var website_media_file_url: String = ""
 

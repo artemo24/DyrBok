@@ -25,12 +25,23 @@ fun App() {
 
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
 
+            if (isDesktop()) {
+                Button(onClick = { createFullBackup() }) {
+                    Text("Create full backup")
+                }
+
+                Button(onClick = { analyzeAppUsage() }) {
+                    Text("Analyze app usage")
+                }
+            }
+
             Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+                Text("Show platform")
             }
 
             AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
+                val greeting = remember { Main().greet() }
+
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("Compose: $greeting")

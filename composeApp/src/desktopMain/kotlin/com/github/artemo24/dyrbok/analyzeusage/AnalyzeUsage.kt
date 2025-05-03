@@ -8,18 +8,24 @@ import java.util.Properties
 
 
 fun main() {
-    println()
-
-    // Disabled: AnalyzeUsage().analyzeAnimalsAndMediaItems()
-
-    // Disabled: AnalyzeUsage().analyzeUsageLogging()
-
-    AnalyzeUsage().analyzeAppVersions()
+    AnalyzeUsage().analyzeUsage()
 }
 
 
 class AnalyzeUsage {
     private val unknownUser = "<<<Unknown user>>>"
+
+    fun analyzeUsage() {
+        println()
+
+        // Disabled: analyzeAnimalsAndMediaItems()
+
+        // Disabled: analyzeUsageLogging()
+
+        // Disabled: analyzeAppVersions()
+
+        analyzeAddMediaItems()
+    }
 
     @Suppress("unused")
     fun analyzeAnimalsAndMediaItems() {
@@ -144,7 +150,8 @@ class AnalyzeUsage {
         println("(W): media item added from the website.")
     }
 
-    fun analyzeAppVersions() {
+    @Suppress("unused")
+    private fun analyzeAppVersions() {
         val firestoreObjects = readFirestoreObjects()
 
         val userAliases = firestoreObjects.users
@@ -153,19 +160,72 @@ class AnalyzeUsage {
             .mapIndexed { userIndex, firebaseUserId -> firebaseUserId to "User ${userIndex + 1}" }
             .toMap()
 
+        val lastMessagePerUser = mutableMapOf<String, String>()
+
         firestoreObjects.screenSwitches
             .filter { screenSwitch -> screenSwitch.parameters.startsWith(prefix = "App version: ") }
             .forEach { screenSwitch ->
                 val userAlias = userAliases[screenSwitch.firebase_user_id] ?: unknownUser
+                val screenSwitchPart = "Screen switch on ${screenSwitch.date_time.take(19)} by $userAlias"
+                val sourceAndDestinationPart = "from ${screenSwitch.source_screen_name} to ${screenSwitch.target_screen_name}"
                 val parametersPart = if (screenSwitch.parameters.isEmpty()) "" else " with parameters '${screenSwitch.parameters}'"
-                val message = "Screen switch on ${screenSwitch.date_time.take(19)} by $userAlias from ${screenSwitch.source_screen_name} to ${screenSwitch.target_screen_name}$parametersPart"
+                val message = "$screenSwitchPart ${sourceAndDestinationPart}$parametersPart"
                 println(message)
+
+                lastMessagePerUser[userAlias] = message
             }
+
+        println()
+        println("Last screen switches per user:")
+        lastMessagePerUser
+            .keys
+            .sortedBy { it.substringAfter("User ").toInt() }
+            .forEach { userAlias ->
+                println("- $userAlias: ${lastMessagePerUser[userAlias]}")
+            }
+    }
+
+    private fun analyzeAddMediaItems() {
+        val firestoreObjects = readFirestoreObjects()
+        var websiteMediaItemCount = 88
+        var firebaseMediaItemCount = 45
+        var totalMediaItemCount = websiteMediaItemCount + firebaseMediaItemCount
+
+        // Show details:
+//        firestoreObjects.logging
+//            .filter { it.message.startsWith("Add media item") }
+//            .forEach {
+//                mediaItemCount++
+//                println("${it.date_time} ${mediaItemCount.toString().padStart(4)} ${it.message}")
+//            }
+
+        val filteredLoggingRecords = firestoreObjects.logging
+            .filter { it.message.startsWith("Add media item") }
+
+        var previousDate = filteredLoggingRecords.first().date_time.toString().take(10)
+        filteredLoggingRecords
+            .forEach {
+                val date = it.date_time.toString().take(10)
+                if (date != previousDate) {
+                    println("$previousDate\t$totalMediaItemCount\t$websiteMediaItemCount\t$firebaseMediaItemCount")
+                    previousDate = date
+                }
+
+                val firebaseStorage = it.message.contains("https://firebasestorage.googleapis.com")
+                if (firebaseStorage) {
+                    firebaseMediaItemCount++
+                } else {
+                    websiteMediaItemCount++
+                }
+                totalMediaItemCount++
+            }
+
+        println("${filteredLoggingRecords.last().date_time.toString().take(10)}\t$totalMediaItemCount\t$websiteMediaItemCount\t$firebaseMediaItemCount")
     }
 
     private fun readFirestoreObjects(): FirestoreObjects {
         val backupProperties = Properties()
-        backupProperties.load(FileInputStream("etc/dyrbok-backup.properties"))
+        backupProperties.load(FileInputStream("/home/freek/test/android/DyrBok/etc/dyrbok-backup.properties"))
         val jsonFilesDirectory = backupProperties["outputDirectory"].toString()
         // Later: val photoBucketUrl = backupProperties["photoBucketUrl"].toString()
 

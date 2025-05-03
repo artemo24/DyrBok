@@ -1,7 +1,7 @@
 package com.github.artemo24.dyrbok
 
 
-class Greeting {
+class Main {
     private val platform = getPlatform()
 
     fun greet(): String {

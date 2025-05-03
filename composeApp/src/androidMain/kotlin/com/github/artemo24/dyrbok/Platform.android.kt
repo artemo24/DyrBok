@@ -7,3 +7,14 @@ class AndroidPlatform : Platform {
 }
 
 actual fun getPlatform(): Platform = AndroidPlatform()
+
+actual fun isDesktop(): Boolean =
+    false
+
+actual fun createFullBackup() {
+    // This is a desktop only function.
+}
+
+actual fun analyzeAppUsage() {
+    // This is a desktop only function.
+}

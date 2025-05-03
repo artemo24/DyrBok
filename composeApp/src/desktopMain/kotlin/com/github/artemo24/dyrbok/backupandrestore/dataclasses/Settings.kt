@@ -14,6 +14,7 @@ import kotlinx.serialization.UseSerializers
 @Suppress("MemberVisibilityCanBePrivate", "PropertyName")
 class Settings : FirestoreObject {
     var setting_id: String = ""
+    var database_version: Int = -1
     var home_screen_messages: String = ""
     var log_quiz_usage: String = ""
     var log_screen_switches: String = ""

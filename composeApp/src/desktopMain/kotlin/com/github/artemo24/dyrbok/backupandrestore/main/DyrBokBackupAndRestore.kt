@@ -31,27 +31,7 @@ import kotlin.reflect.KMutableProperty1
 
 
 fun main() {
-    println()
-
-    // Create a .properties file with the following content:
-    val backupProperties = Properties()
-    backupProperties.load(FileInputStream("etc/dyrbok-backup.properties"))
-    val firebaseProjectId = backupProperties["firebaseProjectId"].toString()
-    val applicationCredentialsJsonPath = backupProperties["applicationCredentialsJsonPath"].toString()
-    val photoBucketUrl = backupProperties["photoBucketUrl"].toString()
-    val outputDirectory = backupProperties["outputDirectory"].toString()
-
-    StorageUtilities.setPhotoBucketUrl(photoBucketUrl)
-
-    val googleCredentials = GoogleCredentials.fromStream(FileInputStream(applicationCredentialsJsonPath))
-    val firestore = FirestoreImplementation(firebaseProjectId, googleCredentials)
-
-    println()
-    println("Create a full backup of the Firestore database and the file storage of the Firebase project with ID '$firebaseProjectId'.")
-    println("Output is written to directory '$outputDirectory'.")
-
-    val backupAndRestore = DyrBokBackupAndRestore()
-    backupAndRestore.createFullBackup(firestore, outputDirectory)
+    DyrBokBackupAndRestore().initializeAndCreateFullBackup(downloadPhotos = true)
 }
 
 
@@ -64,7 +44,31 @@ class DyrBokBackupAndRestore {
     private val verboseLevel1 = true
     private val verboseLevel2 = false
 
-    fun createFullBackup(firestore: FirestoreInterface, outputDirectory: String) {
+    fun initializeAndCreateFullBackup(downloadPhotos: Boolean) {
+        println()
+
+        // Create a .properties file with the following content:
+        val backupProperties = Properties()
+        backupProperties.load(FileInputStream("/home/freek/test/android/DyrBok/etc/dyrbok-backup.properties"))
+        val firebaseProjectId = backupProperties["firebaseProjectId"].toString()
+        val applicationCredentialsJsonPath = backupProperties["applicationCredentialsJsonPath"].toString()
+        val photoBucketUrl = backupProperties["photoBucketUrl"].toString()
+        val outputDirectory = backupProperties["outputDirectory"].toString()
+
+        StorageUtilities.setPhotoBucketUrl(photoBucketUrl)
+
+        val googleCredentials = GoogleCredentials.fromStream(FileInputStream(applicationCredentialsJsonPath))
+        val firestore = FirestoreImplementation(firebaseProjectId, googleCredentials)
+
+        println()
+        println("Create a full backup of the Firestore database and the file storage of the Firebase project with ID '$firebaseProjectId'.")
+        println("Output is written to directory '$outputDirectory'.")
+        println("Download photos: $downloadPhotos.")
+
+        createFullBackup(firestore, outputDirectory, downloadPhotos)
+    }
+
+    private fun createFullBackup(firestore: FirestoreInterface, outputDirectory: String, downloadPhotos: Boolean) {
         val firestoreObjects = if (noJsonFilesFound(outputDirectory)) {
             val readFirestoreObjects = readFirestoreDocumentsToObjects(firestore)
             writeObjectsToJsonFiles(readFirestoreObjects, outputDirectory)
@@ -75,7 +79,9 @@ class DyrBokBackupAndRestore {
 
         zipJsonFiles(outputDirectory)
 
-        downloadPhotosFromFileStorage(firestoreObjects.mediaItems, outputDirectory)
+        if (downloadPhotos) {
+            downloadPhotosFromFileStorage(firestoreObjects.mediaItems, outputDirectory)
+        }
     }
 
     private fun noJsonFilesFound(outputDirectory: String): Boolean =

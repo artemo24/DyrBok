@@ -5,7 +5,7 @@ enum class AdoptionStatus(val websiteName: String) {
     AVAILABLE(websiteName = ""),
     RESERVED(websiteName = "Gereserveerd"),
     ADOPTED(websiteName = "Geplaatst"),
-    UNKNOWN(websiteName = "");
+    UNKNOWN_ADOPTION_STATUS(websiteName = "");
 
     companion object {
         private val resourceIdMap = mutableMapOf<AdoptionStatus, Int>()
@@ -21,7 +21,7 @@ enum class AdoptionStatus(val websiteName: String) {
                 AdoptionStatus.valueOf(databaseValue.uppercase())
 
             } catch (e: IllegalArgumentException) {
-                UNKNOWN
+                UNKNOWN_ADOPTION_STATUS
             }
         }
     }
