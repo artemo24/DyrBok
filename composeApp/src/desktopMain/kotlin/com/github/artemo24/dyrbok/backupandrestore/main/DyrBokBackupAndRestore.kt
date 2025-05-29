@@ -49,7 +49,7 @@ class DyrBokBackupAndRestore {
 
         // Create a .properties file with the following content:
         val backupProperties = Properties()
-        backupProperties.load(FileInputStream("/home/freek/test/android/DyrBok/etc/dyrbok-backup.properties"))
+        backupProperties.load(FileInputStream("/Users/freek/test/kotlin/DyrBok/etc/dyrbok-backup.properties"))
         val firebaseProjectId = backupProperties["firebaseProjectId"].toString()
         val applicationCredentialsJsonPath = backupProperties["applicationCredentialsJsonPath"].toString()
         val photoBucketUrl = backupProperties["photoBucketUrl"].toString()
@@ -235,7 +235,7 @@ class DyrBokBackupAndRestore {
 
     private fun downloadPhotosFromFileStorage(mediaItems: List<MediaItem>, outputDirectory: String) {
         // todo: Use MD5 checksum to download only the new files.
-        // /home/freek/test/android/FirebaseTest1/app/src/main/java/com/github/freekdb/firebasetest1/model/utilities/MD5.kt
+        // /Users/freek/test/kotlin/FirebaseTest1/app/src/main/java/com/github/freekdb/firebasetest1/model/utilities/MD5.kt
 
         val downloadDirectory = "${outputDirectory}animal-photos/"
         File(downloadDirectory).mkdirs()

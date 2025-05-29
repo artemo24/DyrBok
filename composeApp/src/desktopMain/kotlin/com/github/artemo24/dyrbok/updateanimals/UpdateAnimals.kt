@@ -43,7 +43,7 @@ class UpdateAnimals {
 
     private fun initializeFirestore(): FirestoreImplementation {
         val backupProperties = Properties()
-        backupProperties.load(FileInputStream("/home/freek/test/android/DyrBok/etc/dyrbok-backup.properties"))
+        backupProperties.load(FileInputStream("/Users/freek/test/kotlin/DyrBok/etc/dyrbok-backup.properties"))
 
         val firebaseProjectId = backupProperties["firebaseProjectId"].toString()
         val applicationCredentialsJsonPath = backupProperties["applicationCredentialsJsonPath"].toString()

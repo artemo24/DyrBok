@@ -225,7 +225,7 @@ class AnalyzeUsage {
 
     private fun readFirestoreObjects(): FirestoreObjects {
         val backupProperties = Properties()
-        backupProperties.load(FileInputStream("/home/freek/test/android/DyrBok/etc/dyrbok-backup.properties"))
+        backupProperties.load(FileInputStream("/Users/freek/test/kotlin/DyrBok/etc/dyrbok-backup.properties"))
         val jsonFilesDirectory = backupProperties["outputDirectory"].toString()
         // Later: val photoBucketUrl = backupProperties["photoBucketUrl"].toString()
 
