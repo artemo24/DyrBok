@@ -1,4 +1,4 @@
-package com.github.artemo24.dyrbok
+package com.github.artemo24.dyrbok.app
 
 import com.github.artemo24.dyrbok.analyzeusage.AnalyzeUsage
 import com.github.artemo24.dyrbok.backupandrestore.main.DyrBokBackupAndRestore

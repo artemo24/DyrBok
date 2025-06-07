@@ -8,7 +8,7 @@ data class MediaItem(
     val creator: User,
     val captureDateTime: LocalDateTime,
     val fileSize: Long,
-    val fileMd5: ByteArray,
+    val fileMd5: String,
     val mediaFile: MediaFile,
     // Base fields for all data objects.
     val createdBy: User,

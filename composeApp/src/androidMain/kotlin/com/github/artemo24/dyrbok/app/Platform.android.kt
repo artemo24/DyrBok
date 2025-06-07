@@ -1,6 +1,7 @@
-package com.github.artemo24.dyrbok
+package com.github.artemo24.dyrbok.app
 
 import android.os.Build
+
 
 class AndroidPlatform : Platform {
     override val name: String = "Android ${Build.VERSION.SDK_INT}"

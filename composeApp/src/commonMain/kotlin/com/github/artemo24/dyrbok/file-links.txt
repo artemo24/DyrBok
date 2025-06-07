@@ -1,0 +1,45 @@
+cd ~/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24
+
+find . -name *.kt -print
+
+cd ~/test/kotlin/FirebaseTest1/app/src/main/java/com/github/artemo24
+
+# mv dyrbok dyrbok-old
+
+mkdir -p dyrbok/model/enumclasses
+mkdir -p dyrbok/utilities/datetime
+mkdir -p dyrbok/utilities/logging
+mkdir -p dyrbok/websitescraper/dataclasses
+mkdir -p dyrbok/websitescraper/htmlhandlers
+
+cd ~/test/kotlin/FirebaseTest1/app/src/main/java/com/github/artemo24/dyrbok
+
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/enumclasses/AdoptionStatus.kt model/enumclasses/AdoptionStatus.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/enumclasses/AnimalSpecies.kt model/enumclasses/AnimalSpecies.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/AnimalShelterWebsiteScraper.kt websitescraper/AnimalShelterWebsiteScraper.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/RunWebsiteScraper.kt websitescraper/RunWebsiteScraper.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/dataclasses/WebsiteAnimalInformation.kt websitescraper/dataclasses/WebsiteAnimalInformation.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/datetime/DateTimeUtilities.kt utilities/datetime/DateTimeUtilities.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/logging/Log.kt utilities/logging/Log.kt
+
+cd /Users/freek/test/kotlin/FirebaseTest1/app/src/main/java/nl/arise/biodiversity/tools/backup
+
+ln -s /Users/freek/test/kotlin/BabkupProjects/src/main/kotlin/nl/arise/biodiversity/tools/backup/BackupProjects.kt BackupProjects.kt
+
+
+# After moving the destination files, the (invalid) links had to be removed.
+rm utilities/logging/Log.kt
+rm utilities/datetime/DateTimeUtilities.kt
+rm websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt
+rm websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt
+rm websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt
+rm websitescraper/dataclasses/WebsiteAnimalInformation.kt
+rm websitescraper/AnimalShelterWebsiteScraper.kt
+rm websitescraper/RunWebsiteScraper.kt
+rm model/enumclasses/AdoptionStatus.kt
+rm model/enumclasses/AnimalSpecies.kt
+
+rm /Users/freek/test/kotlin/FirebaseTest1/app/src/main/java/nl/arise/biodiversity/tools/backup/BackupProjects.kt

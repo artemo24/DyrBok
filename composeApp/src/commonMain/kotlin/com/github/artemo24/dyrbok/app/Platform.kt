@@ -1,4 +1,4 @@
-package com.github.artemo24.dyrbok
+package com.github.artemo24.dyrbok.app
 
 
 interface Platform {

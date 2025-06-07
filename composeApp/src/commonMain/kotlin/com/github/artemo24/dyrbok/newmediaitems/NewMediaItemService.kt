@@ -112,7 +112,6 @@ class NewMediaItemService(
      */
     fun handleAddAnimal(animalId: String, animalSpecies: AnimalSpecies, mediaItemIds: List<String>) {
         userRepository.readAllActiveUsers().forEach { user ->
-            // Alternative: addNewMediaItems(NewMediaItems(user.userId, animalSpecies, animalId, mediaItemIds))
             addNewMediaItemIds(user.userId, animalSpecies, animalId, mediaItemIds)
         }
     }
@@ -129,11 +128,11 @@ class NewMediaItemService(
     }
 
     /**
-     * Handle making an animal visible again (which is a rare situation). Treat all media items as new: handle this the
-     * same as adding a new animal.
+     * Handle making an animal visible again (which is a rare situation). Treat all media items as old: do not handle
+     * this the same way as adding a new animal.
      */
     fun handleShowAnimal(animalId: String, animalSpecies: AnimalSpecies, mediaItemIds: List<String>) {
-        handleAddAnimal(animalId, animalSpecies, mediaItemIds)
+        // handleAddAnimal(animalId, animalSpecies, mediaItemIds)
     }
 
     /**
@@ -143,7 +142,6 @@ class NewMediaItemService(
         animalRepository.getVisibleAnimals()
             .forEach { animal ->
                 val newMediaItemIds = mediaItemRepository.getMediaItemIdsByAnimal(animal.animalId)
-                // Alternative: addNewMediaItems(NewMediaItems(userId, animal.animalSpecies, animal.animalId, newMediaItemIds))
                 addNewMediaItemIds(userId, animal.animalSpecies, animal.animalId, newMediaItemIds)
             }
     }
