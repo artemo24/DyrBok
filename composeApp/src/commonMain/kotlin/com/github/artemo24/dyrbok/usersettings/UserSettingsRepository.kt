@@ -2,6 +2,6 @@ package com.github.artemo24.dyrbok.usersettings
 
 
 interface UserSettingsRepository {
-    fun readUserSettings(userId: String): UserSettingsMap
-    fun updateUserSettings(userSettingsMap: UserSettingsMap)
+    suspend fun readUserSettings(userId: String): UserSettingsMap
+    suspend fun updateUserSettings(userSettingsMap: UserSettingsMap)
 }

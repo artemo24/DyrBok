@@ -10,9 +10,17 @@ enum class FeatureFlagStatus {
 }
 
 
+const val featureFlagBadges = "feature_flag_badges"
+const val featureFlagDeleteMediaItems = "feature_flag_delete_media_items"
+
+
 object FeatureFlags {
     fun isFeatureBadgesEnabled(userEmailAddress: String): Boolean =
-        isFeatureEnabled(featureFlagName = "feature_flag_badges", userEmailAddress)
+        isFeatureEnabled(featureFlagName = featureFlagBadges, userEmailAddress)
+
+    @Suppress("unused")
+    fun isFeatureDeleteMediaItemsEnabled(userEmailAddress: String): Boolean =
+        isFeatureEnabled(featureFlagName = featureFlagDeleteMediaItems, userEmailAddress)
 
     private fun isFeatureEnabled(featureFlagName: String, userEmailAddress: String): Boolean {
         val featureFlagSetting = Settings.getSetting(key = featureFlagName)

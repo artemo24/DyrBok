@@ -1,13 +1,14 @@
 package com.github.artemo24.dyrbok.model.enumclasses
 
 
+@Suppress("SpellCheckingInspection")
 enum class AnimalSpecies(val websiteSpeciesName: String) {
-    BIRD("vogel"),
-    CAT("kat"),
-    DOG("hond"),
-    RABBIT("konijn"),
-    RODENT("knaagdier"),
-    UNKNOWN_ANIMAL_SPECIES("");
+    BIRD(websiteSpeciesName = "vogel"),
+    CAT(websiteSpeciesName = "kat"),
+    DOG(websiteSpeciesName = "hond"),
+    RABBIT(websiteSpeciesName = "konijn"),
+    RODENT(websiteSpeciesName = "knaagdier"),
+    UNKNOWN_ANIMAL_SPECIES(websiteSpeciesName = "");
 
     fun capitalizedName(): String = "${name.take(1)}${name.drop(1).lowercase()}"
     fun databaseName(): String = name.lowercase()

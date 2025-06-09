@@ -6,7 +6,9 @@ cd ~/test/kotlin/FirebaseTest1/app/src/main/java/com/github/artemo24
 
 # mv dyrbok dyrbok-old
 
+mkdir -p dyrbok/featureflags/domain
 mkdir -p dyrbok/model/enumclasses
+mkdir -p dyrbok/usersettings
 mkdir -p dyrbok/utilities/datetime
 mkdir -p dyrbok/utilities/logging
 mkdir -p dyrbok/websitescraper/dataclasses
@@ -14,16 +16,19 @@ mkdir -p dyrbok/websitescraper/htmlhandlers
 
 cd ~/test/kotlin/FirebaseTest1/app/src/main/java/com/github/artemo24/dyrbok
 
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/featureflags/domain/FeatureFlags.kt featureflags/domain/FeatureFlags.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/enumclasses/AdoptionStatus.kt model/enumclasses/AdoptionStatus.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/enumclasses/AnimalSpecies.kt model/enumclasses/AnimalSpecies.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/usersettings/UserSettingsRepository.kt usersettings/UserSettingsRepository.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/usersettings/UserSettingsService.kt usersettings/UserSettingsService.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/datetime/DateTimeUtilities.kt utilities/datetime/DateTimeUtilities.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/logging/Log.kt utilities/logging/Log.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/AnimalShelterWebsiteScraper.kt websitescraper/AnimalShelterWebsiteScraper.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/RunWebsiteScraper.kt websitescraper/RunWebsiteScraper.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/dataclasses/WebsiteAnimalInformation.kt websitescraper/dataclasses/WebsiteAnimalInformation.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt
-ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/datetime/DateTimeUtilities.kt utilities/datetime/DateTimeUtilities.kt
-ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/logging/Log.kt utilities/logging/Log.kt
 
 cd /Users/freek/test/kotlin/FirebaseTest1/app/src/main/java/nl/arise/biodiversity/tools/backup
 
