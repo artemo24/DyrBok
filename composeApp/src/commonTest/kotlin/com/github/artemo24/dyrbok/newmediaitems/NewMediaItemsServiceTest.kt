@@ -13,9 +13,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 
-// todo: Use fictional names for animals and users everywhere.
-
-
 class NewMediaItemsServiceTest {
     private lateinit var newMediaItemService: NewMediaItemService
 
@@ -29,6 +26,8 @@ class NewMediaItemsServiceTest {
 
     private val animalIdBruce = "Bruce-id"
     private lateinit var animalBruce: Animal
+
+    private val userIdSophie = "Sophie-id"
 
     @BeforeTest
     fun setUp() {
@@ -47,9 +46,9 @@ class NewMediaItemsServiceTest {
             photosWanted = false,
             visible = true,
             webpageUrl = "angel-url",
-            createdBy = userRepositoryMock.userMarianne,
+            createdBy = userRepositoryMock.userMelissa,
             createdDateTime = userRepositoryMock.mockDateTime,
-            updatedBy = userRepositoryMock.userMarianne,
+            updatedBy = userRepositoryMock.userMelissa,
             updatedDateTime = userRepositoryMock.mockDateTime,
         )
 
@@ -63,9 +62,9 @@ class NewMediaItemsServiceTest {
             photosWanted = true,
             visible = true,
             webpageUrl = "bruce-url",
-            createdBy = userRepositoryMock.userMarianne,
+            createdBy = userRepositoryMock.userMelissa,
             createdDateTime = userRepositoryMock.mockDateTime,
-            updatedBy = userRepositoryMock.userMarianne,
+            updatedBy = userRepositoryMock.userMelissa,
             updatedDateTime = userRepositoryMock.mockDateTime,
         )
 
@@ -89,8 +88,7 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_getCountBySpecies() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
 
         val countBySpecies = newMediaItemService.getCountBySpecies(AnimalSpecies.DOG)
 
@@ -99,8 +97,7 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_getCountByAnimal() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
 
         val animalIce = animalRepositoryMock.getAnimalById(animalId = "Ice-id")
         assertNotNull(animalIce)
@@ -111,11 +108,10 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleViewMediaItemsAnimal() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         assertEquals(expected = 4, newMediaItemService.getCountBySpecies(AnimalSpecies.DOG))
 
-        val newMediaItemGroup = NewMediaItemGroup(userIdSuzan, AnimalSpecies.DOG, animalId = "Ice-id", newMediaItemIds = listOf("media-item-b", "media-item-c", "media-item-d"))
+        val newMediaItemGroup = NewMediaItemGroup(userIdSophie, AnimalSpecies.DOG, animalId = "Ice-id", newMediaItemIds = listOf("media-item-b", "media-item-c", "media-item-d"))
         newMediaItemService.handleShowedMediaItemsAnimal(newMediaItemGroup)
 
         assertEquals(expected = 1, newMediaItemService.getCountBySpecies(AnimalSpecies.DOG))
@@ -123,8 +119,7 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleRemoveMediaItem_mediaItemsRemaining() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         assertEquals(expected = 4, newMediaItemService.getCountBySpecies(AnimalSpecies.DOG))
 
         newMediaItemService.handleRemoveMediaItem(mediaItemId = "media-item-d")
@@ -134,8 +129,7 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleRemoveMediaItem_lastMediaItem() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         val animalBelle = animalRepositoryMock.getAnimalById(animalId = "Belle-id")
         assertNotNull(animalBelle)
         assertEquals(expected = 1, newMediaItemService.getCountByAnimal(animalBelle))
@@ -149,13 +143,12 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleRemoveMediaItem_lastMediaItems() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         animalRepositoryMock.addAnimal(animalAngel)
         animalRepositoryMock.addAnimal(animalBruce)
         listOf(animalAngel, animalBruce).forEach { animal ->
             newMediaItemService.addNewMediaItemIds(
-                userIdSuzan,
+                userIdSophie,
                 AnimalSpecies.CAT,
                 animalId = animal.animalId,
                 newMediaItemIds = listOf("media-item-g")
@@ -174,8 +167,7 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleAddAnimal() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         animalRepositoryMock.addAnimal(animalAngel)
         assertEquals(expected = 0, newMediaItemService.getCountByAnimal(animalAngel))
         assertEquals(expected = 0, newMediaItemService.getCountBySpecies(AnimalSpecies.CAT))
@@ -188,8 +180,7 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleHideAnimal() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         animalRepositoryMock.addAnimal(animalAngel)
         newMediaItemService.handleAddAnimal(animalIdAngel, AnimalSpecies.CAT, listOf("media-item-g", "media-item-h"))
         assertEquals(expected = 2, newMediaItemService.getCountByAnimal(animalAngel))
@@ -203,18 +194,18 @@ class NewMediaItemsServiceTest {
 
     @Test
     fun test_handleShowAnimal() {
-        val userIdSuzan = "Suzan-id"
-        newMediaItemService.setUserId(userIdSuzan)
+        newMediaItemService.setUserId(userIdSophie)
         animalRepositoryMock.addAnimal(animalAngel)
         newMediaItemService.handleAddAnimal(animalIdAngel, AnimalSpecies.CAT, listOf("media-item-g", "media-item-h"))
         newMediaItemService.handleHideAnimal(animalIdAngel)
         assertEquals(expected = 0, newMediaItemService.getCountByAnimal(animalAngel))
         assertEquals(expected = 0, newMediaItemService.getCountBySpecies(AnimalSpecies.CAT))
 
+        // Showing an animal after hiding it: the media items are not treated as new.
         newMediaItemService.handleShowAnimal(animalIdAngel, AnimalSpecies.CAT, listOf("media-item-g", "media-item-h"))
 
-        assertEquals(expected = 2, newMediaItemService.getCountByAnimal(animalAngel))
-        assertEquals(expected = 2, newMediaItemService.getCountBySpecies(AnimalSpecies.CAT))
+        assertEquals(expected = 0, newMediaItemService.getCountByAnimal(animalAngel))
+        assertEquals(expected = 0, newMediaItemService.getCountBySpecies(AnimalSpecies.CAT))
     }
 
     @Test

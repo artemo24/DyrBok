@@ -9,25 +9,25 @@ class NewMediaItemGroupRepositoryMock(animalRepositoryMock: AnimalRepositoryMock
 
     private val allMockNewMediaItemGroups = mutableListOf(
         NewMediaItemGroup(
-            userId = "Marianne-id",
+            userId = "Melissa-id",
             animalRepositoryMock.animalBelle.animalSpecies,
             animalRepositoryMock.animalBelle.animalId,
             mediaItemRepositoryMock.getMediaItemIdsByAnimal(animalRepositoryMock.animalBelle.animalId)
         ),
         NewMediaItemGroup(
-            userId = "Marianne-id",
+            userId = "Melissa-id",
             animalRepositoryMock.animalJojo.animalSpecies,
             animalRepositoryMock.animalJojo.animalId,
             mediaItemRepositoryMock.getMediaItemIdsByAnimal(animalRepositoryMock.animalJojo.animalId)
         ),
         NewMediaItemGroup(
-            userId = "Suzan-id",
+            userId = "Sophie-id",
             animalRepositoryMock.animalBelle.animalSpecies,
             animalRepositoryMock.animalIdBelle,
             mediaItemRepositoryMock.getMediaItemIdsByAnimal(animalRepositoryMock.animalBelle.animalId)
         ),
         NewMediaItemGroup(
-            userId = "Suzan-id",
+            userId = "Sophie-id",
             animalRepositoryMock.animalIce.animalSpecies,
             animalRepositoryMock.animalIce.animalId,
             mediaItemRepositoryMock.getMediaItemIdsByAnimal(animalRepositoryMock.animalIce.animalId)

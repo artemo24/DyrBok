@@ -42,9 +42,9 @@ class UserRepositoryMock : UserRepository {
         updatedDateTime = mockDateTime,
     )
 
-    val userMarianne = User(
-        userId = "Marianne-id",
-        name = "Marianne",
+    val userMelissa = User(
+        userId = "Melissa-id",
+        name = "Melissa",
         userStatus = "active",
         roles = emptyList(),
         emailAddress = "",
@@ -55,9 +55,9 @@ class UserRepositoryMock : UserRepository {
         updatedDateTime = mockDateTime,
     )
 
-    val userSuzan = User(
-        userId = "Suzan-id",
-        name = "Suzan",
+    val userSophie = User(
+        userId = "Sophie-id",
+        name = "Sophie",
         userStatus = "active",
         roles = emptyList(),
         emailAddress = "",
@@ -68,7 +68,7 @@ class UserRepositoryMock : UserRepository {
         updatedDateTime = mockDateTime,
     )
 
-    private val mockUsers = listOf(userJosh, userMarianne, userSuzan)
+    private val mockUsers = listOf(userJosh, userMelissa, userSophie)
 
     override fun readAllUsers(): List<User> =
         mockUsers

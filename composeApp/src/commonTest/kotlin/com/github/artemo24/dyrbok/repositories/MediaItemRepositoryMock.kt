@@ -37,19 +37,19 @@ class MediaItemRepositoryMock(userRepositoryMock: UserRepositoryMock, animalRepo
         creator = userRepositoryMock.userJosh,
         captureDateTime = userRepositoryMock.mockDateTime,
         fileSize = 123456L,
-        fileMd5 = MD5.computeMD5Hash("$mediaFileId-$mediaFileId".toByteArray()),
+        fileMd5 = MD5.computeMD5Hash("$mediaFileId-$mediaFileId".toByteArray()).toString(),
         mediaFile = MediaFile(
             mediaFileId = mediaFileId,
             storageSystem = "Firebase Storage",
             fileUrl = Url("url-$mediaFileId"),
-            createdBy = userRepositoryMock.userMarianne,
+            createdBy = userRepositoryMock.userMelissa,
             createdDateTime = userRepositoryMock.mockDateTime,
-            updatedBy = userRepositoryMock.userMarianne,
+            updatedBy = userRepositoryMock.userMelissa,
             updatedDateTime = userRepositoryMock.mockDateTime
         ),
-        createdBy = userRepositoryMock.userMarianne,
+        createdBy = userRepositoryMock.userMelissa,
         createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userMarianne,
+        updatedBy = userRepositoryMock.userMelissa,
         updatedDateTime = userRepositoryMock.mockDateTime
     )
 }

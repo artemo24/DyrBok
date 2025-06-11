@@ -24,7 +24,7 @@ class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepos
         updatedDateTime = userRepositoryMock.mockDateTime,
     )
 
-    val animalIdIce = "Ice-id"
+    private val animalIdIce = "Ice-id"
     val animalIce = Animal(
         animalId = animalIdIce,
         name = "Ice",
@@ -35,13 +35,13 @@ class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepos
         photosWanted = false,
         visible = true,
         webpageUrl = "ice-url",
-        createdBy = userRepositoryMock.userMarianne,
+        createdBy = userRepositoryMock.userMelissa,
         createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userMarianne,
+        updatedBy = userRepositoryMock.userMelissa,
         updatedDateTime = userRepositoryMock.mockDateTime,
     )
 
-    val animalIdJojo = "Jojo-id"
+    private val animalIdJojo = "Jojo-id"
     val animalJojo = Animal(
         animalId = animalIdJojo,
         name = "Jojo",
@@ -52,9 +52,9 @@ class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepos
         photosWanted = false,
         visible = true,
         webpageUrl = "jojo-url",
-        createdBy = userRepositoryMock.userSuzan,
+        createdBy = userRepositoryMock.userSophie,
         createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userSuzan,
+        updatedBy = userRepositoryMock.userSophie,
         updatedDateTime = userRepositoryMock.mockDateTime,
     )
 

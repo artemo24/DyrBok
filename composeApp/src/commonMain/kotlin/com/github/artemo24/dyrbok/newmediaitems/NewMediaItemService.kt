@@ -131,6 +131,7 @@ class NewMediaItemService(
      * Handle making an animal visible again (which is a rare situation). Treat all media items as old: do not handle
      * this the same way as adding a new animal.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun handleShowAnimal(animalId: String, animalSpecies: AnimalSpecies, mediaItemIds: List<String>) {
         // handleAddAnimal(animalId, animalSpecies, mediaItemIds)
     }
