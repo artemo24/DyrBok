@@ -2,12 +2,18 @@ cd ~/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24
 
 find . -name *.kt -print
 
+
+// === Production code ===
+
 cd ~/test/kotlin/FirebaseTest1/app/src/main/java/com/github/artemo24
 
-# mv dyrbok dyrbok-old
+// mv dyrbok dyrbok-old
 
 mkdir -p dyrbok/featureflags/domain
+mkdir -p dyrbok/model/domain
 mkdir -p dyrbok/model/enumclasses
+mkdir -p dyrbok/model/repositories
+mkdir -p dyrbok/newmediaitems
 mkdir -p dyrbok/usersettings
 mkdir -p dyrbok/utilities/datetime
 mkdir -p dyrbok/utilities/logging
@@ -17,8 +23,19 @@ mkdir -p dyrbok/websitescraper/htmlhandlers
 cd ~/test/kotlin/FirebaseTest1/app/src/main/java/com/github/artemo24/dyrbok
 
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/featureflags/domain/FeatureFlags.kt featureflags/domain/FeatureFlags.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/domain/Animal.kt model/domain/Animal.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/domain/AuditInfo.kt model/domain/AuditInfo.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/domain/MediaFile.kt model/domain/MediaFile.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/domain/MediaItem.kt model/domain/MediaItem.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/domain/User.kt model/domain/User.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/enumclasses/AdoptionStatus.kt model/enumclasses/AdoptionStatus.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/enumclasses/AnimalSpecies.kt model/enumclasses/AnimalSpecies.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/repositories/AnimalRepository.kt model/repositories/AnimalRepository.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/repositories/MediaItemRepository.kt model/repositories/MediaItemRepository.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/model/repositories/UserRepository.kt model/repositories/UserRepository.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/newmediaitems/NewMediaItemGroup.kt newmediaitems/NewMediaItemGroup.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/newmediaitems/NewMediaItemGroupRepository.kt newmediaitems/NewMediaItemGroupRepository.kt
+ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/newmediaitems/NewMediaItemService.kt newmediaitems/NewMediaItemService.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/usersettings/UserSettingsRepository.kt usersettings/UserSettingsRepository.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/usersettings/UserSettingsService.kt usersettings/UserSettingsService.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/utilities/datetime/DateTimeUtilities.kt utilities/datetime/DateTimeUtilities.kt
@@ -29,6 +46,26 @@ ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/githu
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt websitescraper/dataclasses/WebsiteAnimalOverviewItem.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt websitescraper/htmlhandlers/AnimalInformationHtmlHandler.kt
 ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonMain/kotlin/com/github/artemo24/dyrbok/websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt websitescraper/htmlhandlers/AnimalsOverviewHtmlHandler.kt
+
+
+// === Test code -- is not really needed in both projects ===
+
+// mkdir -p ~/test/kotlin/FirebaseTest1/app/src/test/java/com/github/artemo24/dyrbok
+// cd ~/test/kotlin/FirebaseTest1/app/src/test/java/com/github/artemo24
+
+// mkdir -p dyrbok/model/repositories
+// mkdir -p dyrbok/newmediaitems
+
+// cd ~/test/kotlin/FirebaseTest1/app/src/test/java/com/github/artemo24/dyrbok
+
+// ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonTest/kotlin/com/github/artemo24/dyrbok/model/repositories/AnimalRepositoryMock.kt model/repositories/AnimalRepositoryMock.kt
+// ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonTest/kotlin/com/github/artemo24/dyrbok/model/repositories/MediaItemRepositoryMock.kt model/repositories/MediaItemRepositoryMock.kt
+// ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonTest/kotlin/com/github/artemo24/dyrbok/model/repositories/UserRepositoryMock.kt model/repositories/UserRepositoryMock.kt
+// ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonTest/kotlin/com/github/artemo24/dyrbok/newmediaitems/NewMediaItemGroupRepositoryMock.kt newmediaitems/NewMediaItemGroupRepositoryMock.kt
+// ln -s /Users/freek/test/kotlin/DyrBok/composeApp/src/commonTest/kotlin/com/github/artemo24/dyrbok/newmediaitems/NewMediaItemsServiceTest.kt newmediaitems/NewMediaItemsServiceTest.kt
+
+
+// === Other stuff ===
 
 cd /Users/freek/test/kotlin/FirebaseTest1/app/src/main/java/nl/arise/biodiversity/tools/backup
 

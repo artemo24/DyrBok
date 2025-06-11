@@ -1,7 +1,7 @@
-package com.github.artemo24.dyrbok.repositories
+package com.github.artemo24.dyrbok.newmediaitems
 
-import com.github.artemo24.dyrbok.newmediaitems.NewMediaItemGroupRepository
-import com.github.artemo24.dyrbok.newmediaitems.NewMediaItemGroup
+import com.github.artemo24.dyrbok.model.repositories.AnimalRepositoryMock
+import com.github.artemo24.dyrbok.model.repositories.MediaItemRepositoryMock
 
 
 class NewMediaItemGroupRepositoryMock(animalRepositoryMock: AnimalRepositoryMock, mediaItemRepositoryMock: MediaItemRepositoryMock) :

@@ -1,9 +1,8 @@
-package com.github.artemo24.dyrbok.repositories
+package com.github.artemo24.dyrbok.model.repositories
 
 import com.github.artemo24.dyrbok.model.domain.AuditInfo
 import com.github.artemo24.dyrbok.model.domain.MediaFile
 import com.github.artemo24.dyrbok.model.domain.MediaItem
-import com.github.artemo24.dyrbok.model.repositories.MediaItemRepository
 import com.github.artemo24.dyrbok.utilities.md5.MD5
 import io.ktor.http.Url
 import io.ktor.utils.io.core.toByteArray

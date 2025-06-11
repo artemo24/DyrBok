@@ -1,10 +1,9 @@
-package com.github.artemo24.dyrbok.repositories
+package com.github.artemo24.dyrbok.model.repositories
 
 import com.github.artemo24.dyrbok.model.domain.Animal
 import com.github.artemo24.dyrbok.model.domain.AuditInfo
 import com.github.artemo24.dyrbok.model.enumclasses.AdoptionStatus
 import com.github.artemo24.dyrbok.model.enumclasses.AnimalSpecies
-import com.github.artemo24.dyrbok.model.repositories.AnimalRepository
 
 
 class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepository {

@@ -4,10 +4,9 @@ import com.github.artemo24.dyrbok.model.domain.Animal
 import com.github.artemo24.dyrbok.model.domain.AuditInfo
 import com.github.artemo24.dyrbok.model.enumclasses.AdoptionStatus
 import com.github.artemo24.dyrbok.model.enumclasses.AnimalSpecies
-import com.github.artemo24.dyrbok.repositories.AnimalRepositoryMock
-import com.github.artemo24.dyrbok.repositories.MediaItemRepositoryMock
-import com.github.artemo24.dyrbok.repositories.NewMediaItemGroupRepositoryMock
-import com.github.artemo24.dyrbok.repositories.UserRepositoryMock
+import com.github.artemo24.dyrbok.model.repositories.AnimalRepositoryMock
+import com.github.artemo24.dyrbok.model.repositories.MediaItemRepositoryMock
+import com.github.artemo24.dyrbok.model.repositories.UserRepositoryMock
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

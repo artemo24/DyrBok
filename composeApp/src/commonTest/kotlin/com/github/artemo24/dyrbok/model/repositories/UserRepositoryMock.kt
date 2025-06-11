@@ -1,7 +1,6 @@
-package com.github.artemo24.dyrbok.repositories
+package com.github.artemo24.dyrbok.model.repositories
 
 import com.github.artemo24.dyrbok.model.domain.User
-import com.github.artemo24.dyrbok.model.repositories.UserRepository
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.Month
 
