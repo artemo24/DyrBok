@@ -1,6 +1,7 @@
 package com.github.artemo24.dyrbok.repositories
 
 import com.github.artemo24.dyrbok.model.domain.Animal
+import com.github.artemo24.dyrbok.model.domain.AuditInfo
 import com.github.artemo24.dyrbok.model.enumclasses.AdoptionStatus
 import com.github.artemo24.dyrbok.model.enumclasses.AnimalSpecies
 import com.github.artemo24.dyrbok.model.repositories.AnimalRepository
@@ -18,10 +19,10 @@ class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepos
         photosWanted = false,
         visible = true,
         webpageUrl = "belle-url",
-        createdBy = userRepositoryMock.userJosh,
-        createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userJosh,
-        updatedDateTime = userRepositoryMock.mockDateTime,
+        auditInfo = AuditInfo(
+            createdBy = userRepositoryMock.userJosh,
+            createdAt = userRepositoryMock.mockDateTime,
+        ),
     )
 
     private val animalIdIce = "Ice-id"
@@ -35,10 +36,10 @@ class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepos
         photosWanted = false,
         visible = true,
         webpageUrl = "ice-url",
-        createdBy = userRepositoryMock.userMelissa,
-        createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userMelissa,
-        updatedDateTime = userRepositoryMock.mockDateTime,
+        auditInfo = AuditInfo(
+            createdBy = userRepositoryMock.userMelissa,
+            createdAt = userRepositoryMock.mockDateTime,
+        ),
     )
 
     private val animalIdJojo = "Jojo-id"
@@ -52,10 +53,10 @@ class AnimalRepositoryMock(userRepositoryMock: UserRepositoryMock) : AnimalRepos
         photosWanted = false,
         visible = true,
         webpageUrl = "jojo-url",
-        createdBy = userRepositoryMock.userSophie,
-        createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userSophie,
-        updatedDateTime = userRepositoryMock.mockDateTime,
+        auditInfo = AuditInfo(
+            createdBy = userRepositoryMock.userSophie,
+            createdAt = userRepositoryMock.mockDateTime,
+        ),
     )
 
     private val mockAnimals = mutableListOf(animalBelle, animalIce, animalJojo)

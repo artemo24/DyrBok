@@ -15,9 +15,5 @@ data class Animal(
     val photosWanted: Boolean,
     val visible: Boolean,
     val webpageUrl: String,
-    // Base fields for all data objects.
-    val createdBy: User,
-    val createdDateTime: LocalDateTime,
-    val updatedBy: User,
-    val updatedDateTime: LocalDateTime,
+    val auditInfo: AuditInfo,
 )

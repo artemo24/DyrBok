@@ -4,7 +4,6 @@ import com.github.artemo24.dyrbok.model.domain.Animal
 import com.github.artemo24.dyrbok.model.enumclasses.AnimalSpecies
 import com.github.artemo24.dyrbok.model.repositories.AnimalRepository
 import com.github.artemo24.dyrbok.model.repositories.MediaItemRepository
-import com.github.artemo24.dyrbok.model.repositories.NewMediaItemGroupRepository
 import com.github.artemo24.dyrbok.model.repositories.UserRepository
 import kotlinx.datetime.LocalDateTime
 

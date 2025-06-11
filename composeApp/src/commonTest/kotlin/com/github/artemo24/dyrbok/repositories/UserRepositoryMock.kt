@@ -24,9 +24,7 @@ class UserRepositoryMock : UserRepository {
         emailAddress = "",
         firebaseUserId = "",
         createdByUserId = "",
-        createdDateTime = mockDateTime,
-        updatedByUserId = "",
-        updatedDateTime = mockDateTime,
+        createdAt = mockDateTime,
     )
 
     val userJosh = User(
@@ -37,9 +35,7 @@ class UserRepositoryMock : UserRepository {
         emailAddress = "",
         firebaseUserId = "",
         createdByUserId = userAdministrator.userId,
-        createdDateTime = mockDateTime,
-        updatedByUserId = userAdministrator.userId,
-        updatedDateTime = mockDateTime,
+        createdAt = mockDateTime,
     )
 
     val userMelissa = User(
@@ -50,9 +46,7 @@ class UserRepositoryMock : UserRepository {
         emailAddress = "",
         firebaseUserId = "",
         createdByUserId = userAdministrator.userId,
-        createdDateTime = mockDateTime,
-        updatedByUserId = userAdministrator.userId,
-        updatedDateTime = mockDateTime,
+        createdAt = mockDateTime,
     )
 
     val userSophie = User(
@@ -63,9 +57,9 @@ class UserRepositoryMock : UserRepository {
         emailAddress = "",
         firebaseUserId = "",
         createdByUserId = userAdministrator.userId,
-        createdDateTime = mockDateTime,
+        createdAt = mockDateTime,
         updatedByUserId = userAdministrator.userId,
-        updatedDateTime = mockDateTime,
+        updatedAt = mockDateTime,
     )
 
     private val mockUsers = listOf(userJosh, userMelissa, userSophie)

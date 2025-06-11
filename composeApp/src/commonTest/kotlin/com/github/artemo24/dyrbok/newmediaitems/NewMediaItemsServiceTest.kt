@@ -1,6 +1,7 @@
 package com.github.artemo24.dyrbok.newmediaitems
 
 import com.github.artemo24.dyrbok.model.domain.Animal
+import com.github.artemo24.dyrbok.model.domain.AuditInfo
 import com.github.artemo24.dyrbok.model.enumclasses.AdoptionStatus
 import com.github.artemo24.dyrbok.model.enumclasses.AnimalSpecies
 import com.github.artemo24.dyrbok.repositories.AnimalRepositoryMock
@@ -46,10 +47,10 @@ class NewMediaItemsServiceTest {
             photosWanted = false,
             visible = true,
             webpageUrl = "angel-url",
-            createdBy = userRepositoryMock.userMelissa,
-            createdDateTime = userRepositoryMock.mockDateTime,
-            updatedBy = userRepositoryMock.userMelissa,
-            updatedDateTime = userRepositoryMock.mockDateTime,
+            auditInfo = AuditInfo(
+                createdBy = userRepositoryMock.userMelissa,
+                createdAt = userRepositoryMock.mockDateTime,
+            )
         )
 
         animalBruce = Animal(
@@ -62,10 +63,10 @@ class NewMediaItemsServiceTest {
             photosWanted = true,
             visible = true,
             webpageUrl = "bruce-url",
-            createdBy = userRepositoryMock.userMelissa,
-            createdDateTime = userRepositoryMock.mockDateTime,
-            updatedBy = userRepositoryMock.userMelissa,
-            updatedDateTime = userRepositoryMock.mockDateTime,
+            auditInfo = AuditInfo(
+                createdBy = userRepositoryMock.userMelissa,
+                createdAt = userRepositoryMock.mockDateTime,
+            )
         )
 
         newMediaItemService = NewMediaItemService(newMediaItemGroupRepositoryMock, userRepositoryMock, animalRepositoryMock, mediaItemRepositoryMock)
@@ -111,7 +112,9 @@ class NewMediaItemsServiceTest {
         newMediaItemService.setUserId(userIdSophie)
         assertEquals(expected = 4, newMediaItemService.getCountBySpecies(AnimalSpecies.DOG))
 
-        val newMediaItemGroup = NewMediaItemGroup(userIdSophie, AnimalSpecies.DOG, animalId = "Ice-id", newMediaItemIds = listOf("media-item-b", "media-item-c", "media-item-d"))
+        val newMediaItemGroup = NewMediaItemGroup(
+            userIdSophie, AnimalSpecies.DOG, animalId = "Ice-id", newMediaItemIds = listOf("media-item-b", "media-item-c", "media-item-d")
+        )
         newMediaItemService.handleShowedMediaItemsAnimal(newMediaItemGroup)
 
         assertEquals(expected = 1, newMediaItemService.getCountBySpecies(AnimalSpecies.DOG))

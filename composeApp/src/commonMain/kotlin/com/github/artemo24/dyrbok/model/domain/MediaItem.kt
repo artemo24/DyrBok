@@ -10,9 +10,5 @@ data class MediaItem(
     val fileSize: Long,
     val fileMd5: String,
     val mediaFile: MediaFile,
-    // Base fields for all data objects.
-    val createdBy: User,
-    val createdDateTime: LocalDateTime,
-    val updatedBy: User,
-    val updatedDateTime: LocalDateTime,
+    val auditInfo: AuditInfo,
 )

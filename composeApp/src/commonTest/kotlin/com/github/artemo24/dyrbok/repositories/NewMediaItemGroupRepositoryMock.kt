@@ -1,6 +1,6 @@
 package com.github.artemo24.dyrbok.repositories
 
-import com.github.artemo24.dyrbok.model.repositories.NewMediaItemGroupRepository
+import com.github.artemo24.dyrbok.newmediaitems.NewMediaItemGroupRepository
 import com.github.artemo24.dyrbok.newmediaitems.NewMediaItemGroup
 
 

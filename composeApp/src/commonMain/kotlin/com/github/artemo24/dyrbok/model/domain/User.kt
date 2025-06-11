@@ -10,10 +10,9 @@ data class User(
     val roles: List<String>,
     val emailAddress: String,
     val firebaseUserId: String,
-    // Base fields for all data objects.
-    // We cannot use the User class as types here.
+    // We cannot use the AuditInfo and User classes here.
     val createdByUserId: String,
-    val createdDateTime: LocalDateTime,
-    val updatedByUserId: String,
-    val updatedDateTime: LocalDateTime,
+    val createdAt: LocalDateTime,
+    val updatedByUserId: String = createdByUserId,
+    val updatedAt: LocalDateTime = createdAt,
 )

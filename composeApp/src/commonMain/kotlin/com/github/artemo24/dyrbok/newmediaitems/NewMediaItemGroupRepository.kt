@@ -1,6 +1,4 @@
-package com.github.artemo24.dyrbok.model.repositories
-
-import com.github.artemo24.dyrbok.newmediaitems.NewMediaItemGroup
+package com.github.artemo24.dyrbok.newmediaitems
 
 
 interface NewMediaItemGroupRepository {

@@ -9,9 +9,5 @@ data class MediaFile(
     val mediaFileId: String,
     val storageSystem: String,
     val fileUrl: Url,
-    // Base fields for all data objects.
-    val createdBy: User,
-    val createdDateTime: LocalDateTime,
-    val updatedBy: User,
-    val updatedDateTime: LocalDateTime,
+    val auditInfo: AuditInfo,
 )

@@ -1,5 +1,6 @@
 package com.github.artemo24.dyrbok.repositories
 
+import com.github.artemo24.dyrbok.model.domain.AuditInfo
 import com.github.artemo24.dyrbok.model.domain.MediaFile
 import com.github.artemo24.dyrbok.model.domain.MediaItem
 import com.github.artemo24.dyrbok.model.repositories.MediaItemRepository
@@ -8,7 +9,7 @@ import io.ktor.http.Url
 import io.ktor.utils.io.core.toByteArray
 
 
-class MediaItemRepositoryMock(userRepositoryMock: UserRepositoryMock, animalRepositoryMock: AnimalRepositoryMock): MediaItemRepository {
+class MediaItemRepositoryMock(userRepositoryMock: UserRepositoryMock, animalRepositoryMock: AnimalRepositoryMock) : MediaItemRepository {
     private val mediaItemsBelle = listOf(createMediaItem(userRepositoryMock, "media-item-a", "1234"))
     private val mediaItemsIce = listOf(
         createMediaItem(userRepositoryMock, "media-item-b", "2345"),
@@ -32,24 +33,25 @@ class MediaItemRepositoryMock(userRepositoryMock: UserRepositoryMock, animalRepo
     override fun getMediaItemsByAnimal(animalId: String): List<MediaItem> =
         mockMediaItems[animalId] ?: emptyList()
 
-    private fun createMediaItem(userRepositoryMock: UserRepositoryMock, mediaItemId: String, mediaFileId: String) = MediaItem(
-        mediaItemId = mediaItemId,
-        creator = userRepositoryMock.userJosh,
-        captureDateTime = userRepositoryMock.mockDateTime,
-        fileSize = 123456L,
-        fileMd5 = MD5.computeMD5Hash("$mediaFileId-$mediaFileId".toByteArray()).toString(),
-        mediaFile = MediaFile(
-            mediaFileId = mediaFileId,
-            storageSystem = "Firebase Storage",
-            fileUrl = Url("url-$mediaFileId"),
-            createdBy = userRepositoryMock.userMelissa,
-            createdDateTime = userRepositoryMock.mockDateTime,
-            updatedBy = userRepositoryMock.userMelissa,
-            updatedDateTime = userRepositoryMock.mockDateTime
-        ),
-        createdBy = userRepositoryMock.userMelissa,
-        createdDateTime = userRepositoryMock.mockDateTime,
-        updatedBy = userRepositoryMock.userMelissa,
-        updatedDateTime = userRepositoryMock.mockDateTime
-    )
+    private fun createMediaItem(userRepositoryMock: UserRepositoryMock, mediaItemId: String, mediaFileId: String) =
+        MediaItem(
+            mediaItemId = mediaItemId,
+            creator = userRepositoryMock.userJosh,
+            captureDateTime = userRepositoryMock.mockDateTime,
+            fileSize = 123456L,
+            fileMd5 = MD5.computeMD5Hash("$mediaFileId-$mediaFileId".toByteArray()).toString(),
+            mediaFile = MediaFile(
+                mediaFileId = mediaFileId,
+                storageSystem = "Firebase Storage",
+                fileUrl = Url("url-$mediaFileId"),
+                auditInfo = AuditInfo(
+                    createdBy = userRepositoryMock.userMelissa,
+                    createdAt = userRepositoryMock.mockDateTime,
+                ),
+            ),
+            auditInfo = AuditInfo(
+                createdBy = userRepositoryMock.userMelissa,
+                createdAt = userRepositoryMock.mockDateTime,
+            ),
+        )
 }
