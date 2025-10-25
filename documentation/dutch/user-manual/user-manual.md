@@ -3,6 +3,16 @@
 [English version of the user manual](/documentation/english/user-manual/user-manual.md).
 [Versión en español del manual de usuario](/documentation/spanish/user-manual/user-manual.md).
 
+## Nieuwe fototellers (versie 1.2)
+
+Met de nieuwe fototellers kun je zien bij welke diersoorten en bij welke dieren nieuwe foto's zijn toegevoegd. Hierdoor is het veel gemakkelijker om de nieuwste foto's te bekijken.
+
+<img alt="Startscherm van de app." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/user-manual/start-screen.png" width="672">
+
+Je kunt zelf kiezen voor welke diersoorten je de fototellers wilt gebruiken. Standaard staan ze voor alle diersoorten aan, maar je kunt ze eenvoudig per diersoort aan- of uitzetten. Dit kun je doen door vanuit het hoofdscherm naar het "App informatie" scherm te gaan en op het tandwiel rechtsboven te klikken. Hierna kun je kiezen voor welke diersoorten je de fototellers wilt zien.
+
+<img alt="Achtergrondinformatie van de app met instellingen fototellers." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/dutch/user-manual/app-description-photo-counters.png" width="672">
+
 ## Introductie: welkom bij de DyrBok app
 
 Heel leuk dat je de DyrBok app wilt gebruiken! (DyrBok is Noors voor dierenboek.) Met deze app kun je foto's van onze asieldieren bekijken en jouw foto's delen met alle vrijwilligers en medewerkers van Dierentehuis Stevenshage. Je kunt ook de beschrijvingen van de dieren lezen en zien welke dieren gereserveerd of geplaatst zijn. Als je foto's deelt, kunnen die eventueel ook gebruikt worden voor de [website](https://www.dierenasielleiden.nl/), het Beestenbende magazine en andere vormen van communicatie van Dierentehuis Stevenshage.
