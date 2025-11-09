@@ -1,0 +1,19 @@
+All texts are provided in three languages:
+- Dutch (nl-NL)
+- English (en-US)
+- Spanish (es-ES)
+
+App name:
+- Dutch: DyrBok
+- English: DyrBok
+- Spanish: DyrBok
+
+Short description:
+- Dutch: Deel informatie en foto's van asieldieren.
+- English: Share information and photos of shelter animals.
+- Spanish: Comparte información y fotos de animales de refugio.
+
+Full description:
+- Dutch: DyrBok is een app voor vrijwilligers en werknemers die werken voor een dierenasiel. Het maakt het mogelijk om informatie en foto's van de dieren in het asiel te delen.
+- English: DyrBok is an app for volunteers and employees working for an animal shelter. It enables sharing information and photos of the shelter animals.
+- Spanish: DyrBok es una app para voluntarios y empleados de un refugio de animales. Permite compartir información y fotos de los animales.
