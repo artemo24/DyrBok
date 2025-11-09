@@ -3,6 +3,16 @@
 [Nederlandse versie van de gebruikershandleiding](/documentation/dutch/user-manual/user-manual.md).
 [Versión en español del manual de usuario](/documentation/spanish/user-manual/user-manual.md).
 
+## New Photo Counters (version 1.2)
+
+The new photo counters show you which animal species and animals have new photos added. This makes it much easier to view the latest photos.
+
+<img alt="App home screen." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/start-screen.png" width="672">
+
+You can choose which animal species you want to use the photo counters for. By default, they are enabled for all animal species, but you can easily turn them on or off per species. You can do this by going to the "App information" screen from the main screen and clicking the gear icon in the top right corner. Then you can choose which animal species you want to see the photo counters for.
+
+<img alt="App background with photo counter settings." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/english/user-manual/app-description-photo-counters.png" width="672">
+
 ## Introduction: welcome to the DyrBok app
 
 We are very happy that you want to use the DyrBok app! (DyrBok is Norwegian for animal book.) With this app you can view photos of our shelter animals and share your photos with all volunteers and employees of Dierentehuis Stevenshage. You can also read the descriptions of the animals and see which animals have been reserved or adopted. If you share photos, they may also be used for the [website](https://www.dierenasielleiden.nl/), the Beestenbende magazine and other forms of communication of Dierentehuis Stevenshage.

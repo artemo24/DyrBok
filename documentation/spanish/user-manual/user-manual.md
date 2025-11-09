@@ -3,6 +3,18 @@
 [English version of the user manual](/documentation/english/user-manual/user-manual.md).
 [Nederlandse versie van de gebruikershandleiding](/documentation/dutch/user-manual/user-manual.md).
 
+## Nuevos contadores de fotos (versión 1.2)
+
+Los nuevos contadores de fotos te muestran qué especies y animales tienen fotos nuevas. Esto facilita mucho ver las fotos más recientes.
+
+<img alt="Pantalla principal de la app." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/spanish/user-manual/start-screen.png" width="672">
+
+Puedes elegir para qué especies animales quieres usar los contadores de fotos. Por defecto, están activados para todas las especies, pero puedes activarlos o desactivarlos fácilmente para cada especie. Para ello, ve a la pantalla "Información de la app" desde la pantalla principal y haz clic en el icono del engranaje en la esquina superior derecha. Luego, elige las especies animales para las que quieres ver los contadores de fotos.
+
+<img alt="Fondo de la app con la configuración del contador de fotos." src="https://raw.githubusercontent.com/artemo24/DyrBok/main/documentation/spanish/user-manual/app-description-photo-counters.png" width="672">
+
+## Introducción: bienvenido a la aplicación DyrBok
+
 ¡Estamos muy contentos de que quieras utilizar la aplicación DyrBok! (DyrBok en noruego significa libro de animales). Con esta aplicación puedes ver fotos de los animales de nuestro refugio y compartir tus fotos con todos los voluntarios y empleados de Dierentehuis Stevenshage. También podrás leer las descripciones de los animales y ver qué animales han sido reservados o adoptados. Si comparte fotografías, también podrán utilizarse para el [sitio web](https://www.dierenasielleidingen.nl/), la revista Beestenbende y otras formas de comunicación de Dierentehuis Stevenshage.
 
 Los antecedentes, el estado de adopción y las fotografías de los animales del refugio están copiados del [sitio web](https://www.dierenasielleidingen.nl/). Normalmente verás nuevos animales del refugio en la aplicación dentro de un día.
